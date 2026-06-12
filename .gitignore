@@ -1,0 +1,24 @@
+# Claude Code project settings (contains local paths / tool permissions)
+.claude/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / secrets (never commit these)
+.env
+.env.*
+*.key
+*.pem
+
+# Node (in case dependencies are added later)
+node_modules/

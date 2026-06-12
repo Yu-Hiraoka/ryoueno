@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RYO UENO — LIFESAVING</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="apple-touch-icon" href="assets/images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo">
+      <img src="assets/images/logo.jpg" alt="RYO UENO" class="nav__logo-img">
+      <span class="nav__logo-text">RYO UENO</span>
+    </a>
+    <button class="nav__hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about" class="nav__link">ABOUT</a></li>
+      <li><a href="#gallery" class="nav__link">GALLERY</a></li>
+      <li><a href="#news" class="nav__link">NEWS</a></li>
+      <li><a href="#highlight" class="nav__link">HIGHLIGHT</a></li>
+      <li><a href="#contact" class="nav__link">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       HERO BG — 固定動画レイヤー（常時背景に表示）
+  ============================================================ -->
+  <div class="hero-bg" id="heroBg">
+    <video
+      class="hero-bg__video"
+      id="heroVideo"
+      src="assets/video/ライフセービングとは.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+    <div class="hero-bg__overlay" id="heroOverlay"></div>
+  </div>
+
+  <!-- ============================================================
+       HERO — スクロールで上へ消えるテキストレイヤー
+  ============================================================ -->
+  <section class="hero" id="hero">
+
+    <!-- RYO UENO 大見出し -->
+    <div class="hero__name-block">
+      <p class="hero__name-label">LIFESAVER</p>
+      <h1 class="hero__name">RYO<br>UENO</h1>
+    </div>
+
+  </section>
+
+  <!-- 固定UIパーツ — heroの外に置いてスタッキングコンテキストの影響を受けない -->
+  <div class="hero__controls" id="heroControls">
+    <button class="hero__sound-btn" id="soundBtn" aria-label="音声オン/オフ">
+      <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+      <svg class="icon icon--unmuted hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="hero__scroll-indicator" id="heroScrollInd">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-text">SCROLL</span>
+  </div>
+
+  <!-- ============================================================
+       SITE CONTENT — スライドオーバーラップするコンテンツ全体
+  ============================================================ -->
+  <div class="site-content" id="siteContent">
+
+    <!-- 写真フィーチャーセクション -->
+    <section class="photo-lead">
+      <div class="photo-lead__track">
+        <div class="photo-lead__sticky">
+          <div class="photo-lead__grid">
+            <div class="photo-lead__item photo-lead__item--main">
+              <img src="assets/images/photo-lead-1.jpg" alt="Competition photo 1" class="photo-lead__img">
+              <div class="photo-lead__caption">
+                <span class="photo-lead__caption-date">2024.07.14</span>
+                <span class="photo-lead__caption-title">ILS World Lifesaving Championships</span>
+              </div>
+            </div>
+            <div class="photo-lead__item photo-lead__item--sm">
+              <img src="assets/images/photo-lead-2.jpg" alt="Competition photo 2" class="photo-lead__img">
+              <div class="photo-lead__caption">
+                <span class="photo-lead__caption-date">2024.05.03</span>
+                <span class="photo-lead__caption-title">全日本ライフセービング選手権</span>
+              </div>
+            </div>
+            <div class="photo-lead__item photo-lead__item--sm">
+              <img src="assets/images/photo-lead-3.jpg" alt="Competition photo 3" class="photo-lead__img">
+              <div class="photo-lead__caption">
+                <span class="photo-lead__caption-date">2023.09.17</span>
+                <span class="photo-lead__caption-title">Asian Lifesaving Championships</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PAGE BODY — 白背景のコンテンツ開始（動画を覆う）
+    ============================================================ -->
+    <div class="page-body" id="pageBody">
+
+    <!-- ============================================================
+         TICKER — 縦スライドニュース
+    ============================================================ -->
+    <div class="ticker" id="ticker">
+      <div class="ticker__vwindow">
+        <div class="ticker__vtrack" id="tickerVTrack">
+          <div class="ticker__vitem">
+            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__text"><em>2024.07.14</em> ILS World Championships 参加報告 — 日本代表として世界の舞台へ</span>
+          </div>
+          <div class="ticker__vitem">
+            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__text"><em>2024.05.03</em> 全日本ライフセービング選手権 Board Race 3位入賞</span>
+          </div>
+          <div class="ticker__vitem">
+            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__text"><em>2023.09.17</em> Asian Lifesaving Championships Surf Race Finalist</span>
+          </div>
+          <div class="ticker__vitem">
+            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__text"><em>2024.03.01</em> 2024シーズン始動 — トレーニングキャンプ報告</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         STORY — RYO UENO
+    ============================================================ -->
+    <section class="story" id="about">
+      <div class="story__inner">
+
+        <!-- テキスト側（左） -->
+        <div class="story__text-col">
+          <p class="section-eyebrow reveal-up">ABOUT</p>
+
+          <div class="story__name-block reveal-up">
+            <h2 class="story__name-en">RYO UENO</h2>
+            <p class="story__name-ja">上野 凌</p>
+          </div>
+
+          <blockquote class="story__quote reveal-up">
+            <span class="story__quote-mark">"</span>
+            優先順位の判断、正確性、スピード、<br>技術が噛み合った。<br>
+            みんなのサポートがあって掴んだ優勝です。
+            <span class="story__quote-mark story__quote-mark--close">"</span>
+          </blockquote>
+
+          <p class="story__body reveal-up">
+            湘南・鵠沼海岸で生まれ育ち、3歳から海を知る。幼少期の喘息をきっかけに水泳を始め、やがてライフセービングへ。慶應義塾大学在学中の2015年に日本代表入りし、2022年に主将就任。2024年ゴールドコーストでの世界大会SERC種目で日本史上初の金メダルを獲得。
+          </p>
+          <p class="story__body reveal-up">
+            海を「自分を成長させてくれる場所」と語り、平日5時半起床でトレーニングを積みながら、公共セクターのまちづくりに挑む二刀流アスリート。
+          </p>
+
+          <div class="story__tags reveal-up">
+            <span class="story__tag">WORLD CHAMPION 2024</span>
+            <span class="story__tag">日本代表主将</span>
+            <span class="story__tag">SERC 日本初金</span>
+          </div>
+
+          <div class="story__cta reveal-up">
+            <a href="#gallery" class="btn btn--story">GALLERY →</a>
+          </div>
+        </div>
+
+        <!-- 写真側（右）— ビューポート右端まで広がる -->
+        <div class="story__visual-col">
+          <img src="assets/images/ryo2.jpeg" alt="上野 凌" class="story__photo">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STATS — 実績
+    ============================================================ -->
+    <section class="stats">
+
+      <!-- フィーチャード実績 -->
+      <div class="stats__feat reveal-up">
+        <span class="stats__feat-year">2024</span>
+        <div class="stats__feat-center">
+          <span class="stats__feat-event">ILS WORLD CHAMPIONSHIPS · SERC</span>
+          <span class="stats__feat-rank">GOLD MEDALIST</span>
+          <span class="stats__feat-sub">日本史上初 · Japan's First Gold</span>
+        </div>
+        <span class="stats__feat-medal" aria-hidden="true">🥇</span>
+      </div>
+
+      <!-- カウンター4つ（一時非表示）
+      <div class="stats__grid">
+        <div class="stats__item reveal-up">
+          <span class="stats__number" data-target="9">0</span>
+          <span class="stats__suffix">年</span>
+          <span class="stats__label">代表キャリア</span>
+        </div>
+        <div class="stats__item reveal-up" style="--delay:0.12s">
+          <span class="stats__number" data-target="5">0</span>
+          <span class="stats__suffix">大会+</span>
+          <span class="stats__label">世界大会出場</span>
+        </div>
+        <div class="stats__item reveal-up" style="--delay:0.24s">
+          <span class="stats__number" data-target="2022">0</span>
+          <span class="stats__suffix"></span>
+          <span class="stats__label">主将就任年</span>
+        </div>
+        <div class="stats__item reveal-up" style="--delay:0.36s">
+          <span class="stats__number" data-target="22">0</span>
+          <span class="stats__suffix">+</span>
+          <span class="stats__label">全国大会メダル</span>
+        </div>
+      </div>
+      -->
+
+      <!-- メダルカード -->
+      <!-- <div class="stats__medals reveal-up">
+        <p class="stats__medals-label">CAREER ACHIEVEMENTS</p>
+        <div class="stats__medals-board">
+
+          <div class="medal-card medal-card--gold">
+            <span class="medal-card__count">4</span>
+            <span class="medal-card__type">GOLD</span>
+            <div class="medal-card__dots">
+              <span class="mdot mdot--gold" title="SERC 世界1位 2024"></span>
+              <span class="mdot mdot--gold" title="All-Japan Pool 2016 1位"></span>
+              <span class="mdot mdot--gold" title="Orange Cup Team 2015"></span>
+              <span class="mdot mdot--gold" title="World Games Relay 2018"></span>
+            </div>
+          </div>
+
+          <div class="medal-card medal-card--silver">
+            <span class="medal-card__count">8</span>
+            <span class="medal-card__type">SILVER</span>
+            <div class="medal-card__dots">
+              <span class="mdot mdot--silver" title="World Games Relay 2018 2位"></span>
+              <span class="mdot mdot--silver" title="World Games SERC 2018 2位"></span>
+              <span class="mdot mdot--silver" title="All-Japan 2017 2位"></span>
+              <span class="mdot mdot--silver" title="All-Japan 2018 2位"></span>
+              <span class="mdot mdot--silver" title="All-Japan 2019 2位"></span>
+              <span class="mdot mdot--silver" title="All-Japan 2021 2位"></span>
+              <span class="mdot mdot--silver" title="Asian Champs 2022 2位"></span>
+              <span class="mdot mdot--silver" title="All-Japan 2023 2位"></span>
+            </div>
+          </div>
+
+          <div class="medal-card medal-card--bronze">
+            <span class="medal-card__count">10</span>
+            <span class="medal-card__type">BRONZE</span>
+            <div class="medal-card__dots">
+              <span class="mdot mdot--bronze" title="All-Japan Ocean Man 2015 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan Board Race 2015 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan 2016 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan 2017 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan 2018 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan Board Race 2024 3位"></span>
+              <span class="mdot mdot--bronze" title="Asian Champs 2019 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan 2020 3位"></span>
+              <span class="mdot mdot--bronze" title="All-Japan 2022 3位"></span>
+              <span class="mdot mdot--bronze" title="International 2023 3位"></span>
+            </div>
+          </div>
+
+          <div class="medal-card medal-card--rep">
+            <span class="medal-card__count">8</span>
+            <span class="medal-card__type">INT'L REP</span>
+            <div class="medal-card__dots">
+              <span class="mdot mdot--rep" title="World Champs 出場 2016"></span>
+              <span class="mdot mdot--rep" title="World Games 出場 2017"></span>
+              <span class="mdot mdot--rep" title="World Champs 出場 2018"></span>
+              <span class="mdot mdot--rep" title="World Champs 出場 2019"></span>
+              <span class="mdot mdot--rep" title="Asian Champs 出場 2021"></span>
+              <span class="mdot mdot--rep" title="World Champs 出場 2022"></span>
+              <span class="mdot mdot--rep" title="Asian Champs Finalist 2023"></span>
+              <span class="mdot mdot--rep" title="World Champs 出場 2023"></span>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+    </section>
+
+    <!-- ============================================================
+         GALLERY — フォトグリッド
+    ============================================================ -->
+    <section class="gallery" id="gallery">
+      <div class="gallery__header reveal-up">
+        <div>
+          <p class="section-eyebrow">GALLERY</p>
+          <h2 class="section-title">ギャラリー</h2>
+        </div>
+      </div>
+
+      <!-- フォトグリッド（実写真使用） -->
+      <div class="gallery__grid" id="galleryGrid">
+
+        <div class="gallery__item gallery__item--large reveal-scale">
+          <img src="assets/images/photo-lead-1.jpg" alt="ILS World Championships 2024" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">ILS World Championships 2024</span>
+          </div>
+        </div>
+
+        <div class="gallery__item reveal-scale" style="--delay:0.08s">
+          <img src="assets/images/ryo.jpg" alt="上野凌" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">Gold Coast 2024</span>
+          </div>
+        </div>
+
+        <div class="gallery__item reveal-scale" style="--delay:0.16s">
+          <img src="assets/images/photo-lead-2.jpg" alt="全日本ライフセービング選手権" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">全日本選手権 2024</span>
+          </div>
+        </div>
+
+        <div class="gallery__item gallery__item--wide reveal-scale gallery__item--m-extra" style="--delay:0.08s">
+          <img src="assets/images/photo-lead-3.jpg" alt="Asian Lifesaving Championships" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">Asian Lifesaving Championships 2023</span>
+          </div>
+        </div>
+
+        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
+          <img src="assets/images/ryo2.jpeg" alt="上野凌" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">Japan National Team</span>
+          </div>
+        </div>
+
+        <!-- Instagram CTA タイル -->
+        <!-- <div class="gallery__item gallery__ig-tile reveal-scale gallery__item--m-extra">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="gallery__ig-link" aria-label="Instagram">
+            <svg class="gallery__ig-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span class="gallery__ig-handle">@ryo_ueno</span>
+            <span class="gallery__ig-cta">フォローする</span>
+          </a>
+        </div> -->
+        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
+          <img src="assets/images/photo-lead-2.jpg" alt="全日本ライフセービング選手権" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">全日本選手権 2024</span>
+          </div>
+        </div>
+        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
+          <img src="assets/images/photo-lead-1.jpg" alt="ILS World Championships 2024" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">ILS World Championships 2024</span>
+          </div>
+        </div>
+
+        <!-- PC追加アイテム（LOAD MORE で表示） -->
+        <div class="gallery__item reveal-scale gallery__item--m-extra gallery__item--pc-extra">
+          <img src="assets/images/photo-lead-2.jpg" alt="Competition" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">全日本選手権 スプリント</span>
+          </div>
+        </div>
+
+        <div class="gallery__item reveal-scale gallery__item--m-extra gallery__item--pc-extra">
+          <img src="assets/images/photo-lead-3.jpg" alt="Asia" class="gallery__img">
+          <div class="gallery__item-overlay">
+            <span class="gallery__cap">Asian Champs 2023 Training</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LOAD MORE ボタン -->
+      <div class="gallery__more-wrap" id="galleryMoreWrap">
+        <button class="gallery__more-btn" id="galleryMoreBtn">
+          LOAD MORE
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         NEWS — マガジンレイアウト
+    ============================================================ -->
+    <section class="news-mag" id="news">
+      <div class="news-mag__inner">
+
+        <!-- ヘッダー -->
+        <div class="news-mag__header reveal-up">
+          <div>
+            <p class="section-eyebrow">NEWS</p>
+            <h2 class="section-title">最新情報</h2>
+          </div>
+          <a href="#" class="news-mag__all">すべての記事を見る →</a>
+        </div>
+
+        <!-- フィーチャード記事（大） -->
+        <article class="news-feat reveal-up">
+          <div class="news-feat__bg" style="background-image:url('assets/images/photo-lead-1.jpg')"></div>
+          <div class="news-feat__body">
+            <div class="news-feat__meta">
+              <span class="news-badge news-badge--report">REPORT</span>
+              <time class="news-date">2024.07.14</time>
+            </div>
+            <h3 class="news-feat__title">ILS World Championships<br>参加報告 — 日本史上初のSERC金メダル</h3>
+            <p class="news-feat__excerpt">ゴールドコーストで開催された世界大会SERC種目で24カ国中1位。優先順位の判断、正確性、スピード、技術が噛み合い、チームで掴んだ日本初の金メダル。</p>
+            <a href="#" class="news-feat__link">
+              <span>詳細はこちら</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="10" x2="16" y2="10"/><polyline points="11 5 16 10 11 15"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- サブ記事グリッド（3列） -->
+        <div class="news-grid">
+
+          <article class="news-card reveal-up" style="--delay:0.1s">
+            <div class="news-card__img-wrap">
+              <img src="assets/images/photo-lead-2.jpg" alt="" class="news-card__img">
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <span class="news-badge news-badge--comp">COMPETITION</span>
+                <time class="news-date">2024.05.03</time>
+              </div>
+              <h4 class="news-card__title">全日本ライフセービング選手権<br>Board Race 3位入賞</h4>
+              <a href="#" class="news-card__link">詳細 →</a>
+            </div>
+          </article>
+
+          <article class="news-card reveal-up" style="--delay:0.2s">
+            <div class="news-card__img-wrap">
+              <img src="assets/images/photo-lead-3.jpg" alt="" class="news-card__img">
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <span class="news-badge news-badge--comp">COMPETITION</span>
+                <time class="news-date">2023.09.17</time>
+              </div>
+              <h4 class="news-card__title">Asian Lifesaving Championships<br>Surf Race Finalist</h4>
+              <a href="#" class="news-card__link">詳細 →</a>
+            </div>
+          </article>
+
+          <article class="news-card reveal-up" style="--delay:0.3s">
+            <div class="news-card__img-wrap news-card__img-wrap--placeholder">
+              <span class="news-card__placeholder-num">2024</span>
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <span class="news-badge news-badge--activity">ACTIVITY</span>
+                <time class="news-date">2024.03.01</time>
+              </div>
+              <h4 class="news-card__title">2024シーズン始動<br>トレーニングキャンプ報告</h4>
+              <a href="#" class="news-card__link">詳細 →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HIGHLIGHT — 動画アーカイブ
+    ============================================================ -->
+    <section class="hl-section" id="highlight">
+
+      <!-- ヘッダー -->
+      <div class="hl-section__header">
+        <p class="section-eyebrow on-dark reveal-up">HIGHLIGHT</p>
+        <h2 class="section-title on-dark reveal-up">ハイライト</h2>
+      </div>
+
+      <!-- 動画コンテンツ（PC余白あり） -->
+      <div class="hl-content">
+
+      <!-- メイン動画プレーヤー -->
+      <div class="hl-main reveal-scale">
+        <video
+          class="hl-main__vid"
+          id="hlVid"
+          src="assets/video/ライフセービングとは.mp4"
+          autoplay muted loop playsinline
+        ></video>
+        <!-- サウンドトグル -->
+        <button class="hl-main__sound" id="hlSoundBtn" aria-label="音声オン/オフ">
+          <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="icon icon--unmuted hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <!-- 現在再生中ラベル -->
+        <div class="hl-main__label" id="hlLabel">
+          <span class="hl-main__label-tag">LIFESAVING JAPAN</span>
+          <span class="hl-main__label-title">ライフセービングとは</span>
+        </div>
+      </div>
+
+      <!-- サムネイル行（クリックで切り替え） -->
+      <div class="hl-thumbs">
+        <button class="hl-thumb active" data-src="assets/video/ライフセービングとは.mp4" data-title="ライフセービングとは">
+          <div class="hl-thumb__inner">
+            <span class="hl-thumb__num">01</span>
+            <span class="hl-thumb__title">ライフセービングとは</span>
+            <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </button>
+        <button class="hl-thumb" data-src="assets/video/highlight.mp4" data-title="Competition Highlights">
+          <div class="hl-thumb__inner">
+            <span class="hl-thumb__num">02</span>
+            <span class="hl-thumb__title">Competition Highlights</span>
+            <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </button>
+        <button class="hl-thumb hl-thumb--soon" disabled>
+          <div class="hl-thumb__inner">
+            <span class="hl-thumb__num">03</span>
+            <span class="hl-thumb__title">COMING SOON</span>
+          </div>
+        </button>
+        <button class="hl-thumb hl-thumb--soon" disabled>
+          <div class="hl-thumb__inner">
+            <span class="hl-thumb__num">04</span>
+            <span class="hl-thumb__title">COMING SOON</span>
+          </div>
+        </button>
+      </div>
+
+      </div><!-- /.hl-content -->
+
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="contact" id="contact">
+      <!-- 背景デコ -->
+      <span class="contact__deco" aria-hidden="true">RYO</span>
+
+      <div class="contact__inner">
+        <h2 class="contact__title reveal-up">GET IN TOUCH</h2>
+
+        <!-- SNS 3点 -->
+        <div class="contact__sns reveal-up">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact__sns-item" aria-label="Instagram">
+            <div class="contact__sns-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <span class="contact__sns-name">Instagram</span>
+          </a>
+          <a href="https://x.com/" target="_blank" rel="noopener" class="contact__sns-item" aria-label="X">
+            <div class="contact__sns-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <span class="contact__sns-name">X / Twitter</span>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="contact__sns-item" aria-label="YouTube">
+            <div class="contact__sns-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509 0-9.399.501a3.008 3.008 0 00-2.088 2.09C0 8.094 0 12 0 12s0 3.906.523 5.797a3.008 3.008 0 002.088 2.088c1.868.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.088C24 15.906 24 12 24 12s0-3.906-.501-5.797zM9.609 15.601V8.4l6.264 3.602-6.264 3.599z"/></svg>
+            </div>
+            <span class="contact__sns-name">YouTube</span>
+          </a>
+        </div>
+
+        <!-- コンタクトボタン -->
+        <a href="mailto:contact@ryoueno.com" class="contact__mail reveal-up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          CONTACT
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <img src="assets/images/logo.jpg" alt="RYO UENO" class="footer__logo-img">
+          <p class="footer__logo-text">RYO UENO</p>
+        </div>
+        <p class="footer__copy">&copy; 2025 Ryo Ueno. All rights reserved.</p>
+      </div>
+    </footer>
+
+    </div><!-- /page-body -->
+
+  </div><!-- /site-content -->
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
