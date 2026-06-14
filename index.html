@@ -25,44 +25,37 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav__links" id="navLinks">
-      <li><a href="#about" class="nav__link">ABOUT</a></li>
-      <li><a href="#gallery" class="nav__link">GALLERY</a></li>
-      <li><a href="#news" class="nav__link">NEWS</a></li>
-      <li><a href="#highlight" class="nav__link">HIGHLIGHT</a></li>
-      <li><a href="#contact" class="nav__link">CONTACT</a></li>
+      <li><a href="#about"      class="nav__link">ABOUT</a></li>
+      <li><a href="#athlete"    class="nav__link">ATHLETE</a></li>
+      <li><a href="#lifesaving" class="nav__link">LIFESAVING</a></li>
+      <li><a href="#projects"   class="nav__link">PROJECTS</a></li>
+      <li><a href="#media"      class="nav__link">MEDIA</a></li>
+      <li><a href="#partners"   class="nav__link">PARTNERS</a></li>
+      <li><a href="#contact"    class="nav__link">CONTACT</a></li>
     </ul>
   </nav>
 
   <!-- ============================================================
-       HERO BG — 固定動画レイヤー（常時背景に表示）
+       HERO BG — 固定動画レイヤー
   ============================================================ -->
   <div class="hero-bg" id="heroBg">
-    <video
-      class="hero-bg__video"
-      id="heroVideo"
+    <video class="hero-bg__video" id="heroVideo"
       src="assets/video/ライフセービングとは.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
+      autoplay muted loop playsinline></video>
     <div class="hero-bg__overlay" id="heroOverlay"></div>
   </div>
 
   <!-- ============================================================
-       HERO — スクロールで上へ消えるテキストレイヤー
+       HERO — テキストレイヤー
   ============================================================ -->
   <section class="hero" id="hero">
-
-    <!-- RYO UENO 大見出し -->
     <div class="hero__name-block">
       <p class="hero__name-label">LIFESAVER</p>
       <h1 class="hero__name">RYO<br>UENO</h1>
     </div>
-
   </section>
 
-  <!-- 固定UIパーツ — heroの外に置いてスタッキングコンテキストの影響を受けない -->
+  <!-- 固定UIパーツ -->
   <div class="hero__controls" id="heroControls">
     <button class="hero__sound-btn" id="soundBtn" aria-label="音声オン/オフ">
       <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -83,7 +76,7 @@
   </div>
 
   <!-- ============================================================
-       SITE CONTENT — スライドオーバーラップするコンテンツ全体
+       SITE CONTENT
   ============================================================ -->
   <div class="site-content" id="siteContent">
 
@@ -93,21 +86,21 @@
         <div class="photo-lead__sticky">
           <div class="photo-lead__grid">
             <div class="photo-lead__item photo-lead__item--main">
-              <img src="assets/images/photo-lead-1.jpg" alt="Competition photo 1" class="photo-lead__img">
+              <img src="assets/images/photo-lead-1.jpg" alt="ILS World Championships 2024" class="photo-lead__img">
               <div class="photo-lead__caption">
                 <span class="photo-lead__caption-date">2024.07.14</span>
                 <span class="photo-lead__caption-title">ILS World Lifesaving Championships</span>
               </div>
             </div>
             <div class="photo-lead__item photo-lead__item--sm">
-              <img src="assets/images/photo-lead-2.jpg" alt="Competition photo 2" class="photo-lead__img">
+              <img src="assets/images/photo-lead-2.jpg" alt="全日本選手権" class="photo-lead__img">
               <div class="photo-lead__caption">
                 <span class="photo-lead__caption-date">2024.05.03</span>
                 <span class="photo-lead__caption-title">全日本ライフセービング選手権</span>
               </div>
             </div>
             <div class="photo-lead__item photo-lead__item--sm">
-              <img src="assets/images/photo-lead-3.jpg" alt="Competition photo 3" class="photo-lead__img">
+              <img src="assets/images/photo-lead-3.jpg" alt="Asian Championships" class="photo-lead__img">
               <div class="photo-lead__caption">
                 <span class="photo-lead__caption-date">2023.09.17</span>
                 <span class="photo-lead__caption-title">Asian Lifesaving Championships</span>
@@ -118,14 +111,10 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         PAGE BODY — 白背景のコンテンツ開始（動画を覆う）
-    ============================================================ -->
+    <!-- PAGE BODY -->
     <div class="page-body" id="pageBody">
 
-    <!-- ============================================================
-         TICKER — 縦スライドニュース
-    ============================================================ -->
+    <!-- TICKER -->
     <div class="ticker" id="ticker">
       <div class="ticker__vwindow">
         <div class="ticker__vtrack" id="tickerVTrack">
@@ -150,14 +139,19 @@
     </div>
 
     <!-- ============================================================
-         STORY — RYO UENO
+         ABOUT
     ============================================================ -->
     <section class="story" id="about">
+
+      <!-- ABOUT — 元のレイアウトを復元 (テキスト左 / 写真右) -->
       <div class="story__inner">
 
-        <!-- テキスト側（左） -->
         <div class="story__text-col">
           <p class="section-eyebrow reveal-up">ABOUT</p>
+
+          <div class="story__photo-mobile reveal-up">
+            <img src="assets/images/ryo2.jpeg" alt="上野 凌" class="story__photo">
+          </div>
 
           <div class="story__name-block reveal-up">
             <h2 class="story__name-en">RYO UENO</h2>
@@ -166,8 +160,7 @@
 
           <blockquote class="story__quote reveal-up">
             <span class="story__quote-mark">"</span>
-            優先順位の判断、正確性、スピード、<br>技術が噛み合った。<br>
-            みんなのサポートがあって掴んだ優勝です。
+            優先順位の判断、正確性、スピード、技術が噛み合った。みんなのサポートがあって掴んだ優勝です。
             <span class="story__quote-mark story__quote-mark--close">"</span>
           </blockquote>
 
@@ -178,398 +171,615 @@
             海を「自分を成長させてくれる場所」と語り、平日5時半起床でトレーニングを積みながら、公共セクターのまちづくりに挑む二刀流アスリート。
           </p>
 
-          <div class="story__tags reveal-up">
-            <span class="story__tag">WORLD CHAMPION 2024</span>
-            <span class="story__tag">日本代表主将</span>
-            <span class="story__tag">SERC 日本初金</span>
-          </div>
-
-          <div class="story__cta reveal-up">
-            <a href="#gallery" class="btn btn--story">GALLERY →</a>
+          <div class="story__career-embed reveal-up">
+            <div class="career-tabs-wrap">
+              <div class="career-tabs" role="tablist">
+                <button class="career-tab career-tab--active" data-tab="ls" role="tab" aria-selected="true">LIFESAVER</button>
+                <button class="career-tab" data-tab="cons" role="tab" aria-selected="false">CONSULTANT</button>
+              </div>
+            </div>
+            <div class="career-content">
+              <div class="career-pane career-pane--ls career-pane--active" data-pane="ls" role="tabpanel">
+                <ol class="career-timeline">
+                  <li class="career-item">
+                    <span class="career-year">2015</span>
+                    <div class="career-body"><strong>日本代表 初選出</strong></div>
+                  </li>
+                  <li class="career-item">
+                    <span class="career-year">2016</span>
+                    <div class="career-body"><strong>全日本選手権 金メダル</strong></div>
+                  </li>
+                  <li class="career-item">
+                    <span class="career-year">2022</span>
+                    <div class="career-body"><strong>日本代表 主将就任</strong></div>
+                  </li>
+                  <li class="career-item career-item--gold">
+                    <span class="career-year">2024</span>
+                    <div class="career-body"><strong>ILS World Championships SERC — 日本史上初 金メダル</strong></div>
+                  </li>
+                </ol>
+              </div>
+              <div class="career-pane career-pane--cons" data-pane="cons" role="tabpanel">
+                <ol class="career-timeline career-timeline--cons">
+                  <li class="career-item">
+                    <span class="career-year">2018</span>
+                    <div class="career-body"><strong>慶應義塾大学 卒業</strong></div>
+                  </li>
+                  <li class="career-item">
+                    <span class="career-year">2019</span>
+                    <div class="career-body"><strong>コンサルティングファーム 入社</strong></div>
+                  </li>
+                  <li class="career-item">
+                    <span class="career-year">2023</span>
+                    <div class="career-body"><strong>官民連携プロジェクト リード</strong></div>
+                  </li>
+                  <li class="career-item career-item--now">
+                    <span class="career-year">NOW</span>
+                    <div class="career-body"><strong>二刀流として活動中</strong></div>
+                  </li>
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 写真側（右）— ビューポート右端まで広がる -->
         <div class="story__visual-col">
           <img src="assets/images/ryo2.jpeg" alt="上野 凌" class="story__photo">
         </div>
 
       </div>
-    </section>
+    </section><!-- /#about -->
 
     <!-- ============================================================
-         STATS — 実績
+         ATHLETE
     ============================================================ -->
-    <section class="stats">
+    <section class="athlete-section" id="athlete">
 
-      <!-- フィーチャード実績 -->
-      <div class="stats__feat reveal-up">
-        <span class="stats__feat-year">2024</span>
-        <div class="stats__feat-center">
-          <span class="stats__feat-event">ILS WORLD CHAMPIONSHIPS · SERC</span>
-          <span class="stats__feat-rank">GOLD MEDALIST</span>
-          <span class="stats__feat-sub">日本史上初 · Japan's First Gold</span>
-        </div>
-        <span class="stats__feat-medal" aria-hidden="true">🥇</span>
-      </div>
+      <!-- 戦績ヒーロー — フォト背景 + 左オーバーレイ統計 -->
+      <div class="athlete-bg-hero">
 
-      <!-- カウンター4つ（一時非表示）
-      <div class="stats__grid">
-        <div class="stats__item reveal-up">
-          <span class="stats__number" data-target="9">0</span>
-          <span class="stats__suffix">年</span>
-          <span class="stats__label">代表キャリア</span>
-        </div>
-        <div class="stats__item reveal-up" style="--delay:0.12s">
-          <span class="stats__number" data-target="5">0</span>
-          <span class="stats__suffix">大会+</span>
-          <span class="stats__label">世界大会出場</span>
-        </div>
-        <div class="stats__item reveal-up" style="--delay:0.24s">
-          <span class="stats__number" data-target="2022">0</span>
-          <span class="stats__suffix"></span>
-          <span class="stats__label">主将就任年</span>
-        </div>
-        <div class="stats__item reveal-up" style="--delay:0.36s">
-          <span class="stats__number" data-target="22">0</span>
-          <span class="stats__suffix">+</span>
-          <span class="stats__label">全国大会メダル</span>
-        </div>
-      </div>
-      -->
+        <!-- 背景写真 -->
+        <img src="assets/images/ryo_pool.jpg"
+             alt="上野 凌 — プール競技"
+             class="athlete-hero-img">
 
-      <!-- メダルカード -->
-      <!-- <div class="stats__medals reveal-up">
-        <p class="stats__medals-label">CAREER ACHIEVEMENTS</p>
-        <div class="stats__medals-board">
+        <!-- 左から右へのグラデーションオーバーレイ -->
+        <div class="athlete-hero-overlay"></div>
 
-          <div class="medal-card medal-card--gold">
-            <span class="medal-card__count">4</span>
-            <span class="medal-card__type">GOLD</span>
-            <div class="medal-card__dots">
-              <span class="mdot mdot--gold" title="SERC 世界1位 2024"></span>
-              <span class="mdot mdot--gold" title="All-Japan Pool 2016 1位"></span>
-              <span class="mdot mdot--gold" title="Orange Cup Team 2015"></span>
-              <span class="mdot mdot--gold" title="World Games Relay 2018"></span>
-            </div>
+        <!-- 統計テキスト（左側） -->
+        <div class="athlete-hero-stats reveal-up">
+          <p class="section-eyebrow on-dark" style="--delay:0s">ATHLETE</p>
+
+          <div class="hero-stat" style="--delay:0.1s">
+            <span class="hero-stat__num" data-target="20">0</span>
+            <span class="hero-stat__label">All-Japan Championship titles</span>
           </div>
 
-          <div class="medal-card medal-card--silver">
-            <span class="medal-card__count">8</span>
-            <span class="medal-card__type">SILVER</span>
-            <div class="medal-card__dots">
-              <span class="mdot mdot--silver" title="World Games Relay 2018 2位"></span>
-              <span class="mdot mdot--silver" title="World Games SERC 2018 2位"></span>
-              <span class="mdot mdot--silver" title="All-Japan 2017 2位"></span>
-              <span class="mdot mdot--silver" title="All-Japan 2018 2位"></span>
-              <span class="mdot mdot--silver" title="All-Japan 2019 2位"></span>
-              <span class="mdot mdot--silver" title="All-Japan 2021 2位"></span>
-              <span class="mdot mdot--silver" title="Asian Champs 2022 2位"></span>
-              <span class="mdot mdot--silver" title="All-Japan 2023 2位"></span>
-            </div>
-          </div>
-
-          <div class="medal-card medal-card--bronze">
-            <span class="medal-card__count">10</span>
-            <span class="medal-card__type">BRONZE</span>
-            <div class="medal-card__dots">
-              <span class="mdot mdot--bronze" title="All-Japan Ocean Man 2015 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan Board Race 2015 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan 2016 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan 2017 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan 2018 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan Board Race 2024 3位"></span>
-              <span class="mdot mdot--bronze" title="Asian Champs 2019 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan 2020 3位"></span>
-              <span class="mdot mdot--bronze" title="All-Japan 2022 3位"></span>
-              <span class="mdot mdot--bronze" title="International 2023 3位"></span>
-            </div>
-          </div>
-
-          <div class="medal-card medal-card--rep">
-            <span class="medal-card__count">8</span>
-            <span class="medal-card__type">INT'L REP</span>
-            <div class="medal-card__dots">
-              <span class="mdot mdot--rep" title="World Champs 出場 2016"></span>
-              <span class="mdot mdot--rep" title="World Games 出場 2017"></span>
-              <span class="mdot mdot--rep" title="World Champs 出場 2018"></span>
-              <span class="mdot mdot--rep" title="World Champs 出場 2019"></span>
-              <span class="mdot mdot--rep" title="Asian Champs 出場 2021"></span>
-              <span class="mdot mdot--rep" title="World Champs 出場 2022"></span>
-              <span class="mdot mdot--rep" title="Asian Champs Finalist 2023"></span>
-              <span class="mdot mdot--rep" title="World Champs 出場 2023"></span>
-            </div>
-          </div>
-
-        </div>
-      </div> -->
-
-    </section>
-
-    <!-- ============================================================
-         GALLERY — フォトグリッド
-    ============================================================ -->
-    <section class="gallery" id="gallery">
-      <div class="gallery__header reveal-up">
-        <div>
-          <p class="section-eyebrow">GALLERY</p>
-          <h2 class="section-title">ギャラリー</h2>
-        </div>
-      </div>
-
-      <!-- フォトグリッド（実写真使用） -->
-      <div class="gallery__grid" id="galleryGrid">
-
-        <div class="gallery__item gallery__item--large reveal-scale">
-          <img src="assets/images/photo-lead-1.jpg" alt="ILS World Championships 2024" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">ILS World Championships 2024</span>
+          <div class="hero-stat" style="--delay:0.2s">
+            <span class="hero-stat__num">1</span>
+            <span class="hero-stat__label">World Championship titles</span>
           </div>
         </div>
 
-        <div class="gallery__item reveal-scale" style="--delay:0.08s">
-          <img src="assets/images/ryo.jpg" alt="上野凌" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">Gold Coast 2024</span>
-          </div>
-        </div>
+      </div><!-- /.athlete-bg-hero -->
 
-        <div class="gallery__item reveal-scale" style="--delay:0.16s">
-          <img src="assets/images/photo-lead-2.jpg" alt="全日本ライフセービング選手権" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">全日本選手権 2024</span>
-          </div>
-        </div>
-
-        <div class="gallery__item gallery__item--wide reveal-scale gallery__item--m-extra" style="--delay:0.08s">
-          <img src="assets/images/photo-lead-3.jpg" alt="Asian Lifesaving Championships" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">Asian Lifesaving Championships 2023</span>
-          </div>
-        </div>
-
-        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
-          <img src="assets/images/ryo2.jpeg" alt="上野凌" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">Japan National Team</span>
-          </div>
-        </div>
-
-        <!-- Instagram CTA タイル -->
-        <!-- <div class="gallery__item gallery__ig-tile reveal-scale gallery__item--m-extra">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="gallery__ig-link" aria-label="Instagram">
-            <svg class="gallery__ig-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span class="gallery__ig-handle">@ryo_ueno</span>
-            <span class="gallery__ig-cta">フォローする</span>
-          </a>
+      <!-- レース映像 -->
+      <div class="athlete-block athlete-block--video">
+        <!-- <div class="athlete-block__header reveal-up">
+          <p class="section-eyebrow on-dark">VIDEO</p>
+          <h2 class="section-title on-dark">レース映像</h2>
         </div> -->
-        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
-          <img src="assets/images/photo-lead-2.jpg" alt="全日本ライフセービング選手権" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">全日本選手権 2024</span>
-          </div>
-        </div>
-        <div class="gallery__item reveal-scale gallery__item--m-extra" style="--delay:0.16s">
-          <img src="assets/images/photo-lead-1.jpg" alt="ILS World Championships 2024" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">ILS World Championships 2024</span>
-          </div>
-        </div>
 
-        <!-- PC追加アイテム（LOAD MORE で表示） -->
-        <div class="gallery__item reveal-scale gallery__item--m-extra gallery__item--pc-extra">
-          <img src="assets/images/photo-lead-2.jpg" alt="Competition" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">全日本選手権 スプリント</span>
+        <div class="hl-content">
+          <div class="hl-main reveal-scale">
+            <video class="hl-main__vid" id="hlVid"
+              src="assets/video/ライフセービングとは.mp4"
+              autoplay muted loop playsinline></video>
+            <button class="hl-main__sound" id="hlSoundBtn" aria-label="音声オン/オフ">
+              <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+              <svg class="icon icon--unmuted hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </button>
+            <div class="hl-main__label" id="hlLabel">
+              <span class="hl-main__label-tag">LIFESAVING JAPAN</span>
+              <span class="hl-main__label-title">ライフセービングとは</span>
+            </div>
+          </div>
+          <div class="hl-thumbs">
+            <button class="hl-thumb active" data-src="assets/video/ライフセービングとは.mp4" data-title="ライフセービングとは">
+              <div class="hl-thumb__inner">
+                <span class="hl-thumb__num">01</span>
+                <span class="hl-thumb__title">ライフセービングとは</span>
+                <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </button>
+            <button class="hl-thumb" data-src="assets/video/highlight.mp4" data-title="Competition Highlights">
+              <div class="hl-thumb__inner">
+                <span class="hl-thumb__num">02</span>
+                <span class="hl-thumb__title">Competition Highlights</span>
+                <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </button>
+            <button class="hl-thumb hl-thumb--soon" disabled>
+              <div class="hl-thumb__inner"><span class="hl-thumb__num">03</span><span class="hl-thumb__title">COMING SOON</span></div>
+            </button>
+            <button class="hl-thumb hl-thumb--soon" disabled>
+              <div class="hl-thumb__inner"><span class="hl-thumb__num">04</span><span class="hl-thumb__title">COMING SOON</span></div>
+            </button>
           </div>
         </div>
-
-        <div class="gallery__item reveal-scale gallery__item--m-extra gallery__item--pc-extra">
-          <img src="assets/images/photo-lead-3.jpg" alt="Asia" class="gallery__img">
-          <div class="gallery__item-overlay">
-            <span class="gallery__cap">Asian Champs 2023 Training</span>
-          </div>
-        </div>
-
       </div>
-
-      <!-- LOAD MORE ボタン -->
-      <div class="gallery__more-wrap" id="galleryMoreWrap">
-        <button class="gallery__more-btn" id="galleryMoreBtn">
-          LOAD MORE
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-      </div>
-
-    </section>
+    </section><!-- /#athlete -->
 
     <!-- ============================================================
-         NEWS — マガジンレイアウト
+         LIFESAVING
     ============================================================ -->
-    <section class="news-mag" id="news">
-      <div class="news-mag__inner">
+    <section class="lifesaving-section" id="lifesaving">
 
-        <!-- ヘッダー -->
-        <div class="news-mag__header reveal-up">
-          <div>
-            <p class="section-eyebrow">NEWS</p>
-            <h2 class="section-title">最新情報</h2>
-          </div>
-          <a href="#" class="news-mag__all">すべての記事を見る →</a>
+      <div class="lifesaving-header reveal-up">
+        <p class="section-eyebrow">LIFESAVING</p>
+        <h2 class="section-title">ライフセービング活動</h2>
+        <p class="lifesaving-lead">競技だけではない。海を守り、命を守る——上野凌の活動の根幹にある3つの柱。</p>
+      </div>
+
+      <!-- 3カラムグリッド: ラベル行 + 3×3 正方形写真 -->
+      <div class="ls-grid">
+
+        <!-- ラベル行 -->
+        <div class="ls-label reveal-up">
+          <span class="lifesaving-cat__num">01</span>
+          <h3 class="lifesaving-cat__title">救助活動</h3>
+          <p class="lifesaving-cat__desc">鵠沼海岸を拠点に、海水浴シーズンの監視・救助活動に従事。年間数百人規模のインシデント対応実績。</p>
+        </div>
+        <div class="ls-label reveal-up" style="--delay:0.08s">
+          <span class="lifesaving-cat__num">02</span>
+          <h3 class="lifesaving-cat__title">安全教育</h3>
+          <p class="lifesaving-cat__desc">学校・企業・地域コミュニティへの出張授業を通じ、海の安全行動・応急処置の知識を普及。</p>
+        </div>
+        <div class="ls-label reveal-up" style="--delay:0.16s">
+          <span class="lifesaving-cat__num">03</span>
+          <h3 class="lifesaving-cat__title">溺水予防</h3>
+          <p class="lifesaving-cat__desc">日本ライフセービング協会と連携し、溺水防止シンポジウムや啓発講習会に登壇。未然防止の文化づくりに貢献。</p>
         </div>
 
-        <!-- フィーチャード記事（大） -->
-        <article class="news-feat reveal-up">
-          <div class="news-feat__bg" style="background-image:url('assets/images/photo-lead-1.jpg')"></div>
-          <div class="news-feat__body">
-            <div class="news-feat__meta">
-              <span class="news-badge news-badge--report">REPORT</span>
-              <time class="news-date">2024.07.14</time>
+        <!-- 写真行 1 -->
+        <div class="ls-cell reveal-scale" style="--delay:0.04s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">ILS World Championships 2024<br>海上救助デモンストレーション</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.08s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">Asian Lifesaving Championships<br>安全教育セッション</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.12s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">溺水予防シンポジウム<br>日本ライフセービング協会</p></div>
+        </div>
+
+        <!-- 写真行 2 -->
+        <div class="ls-cell reveal-scale" style="--delay:0.08s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">全日本ライフセービング選手権<br>監視・救助競技</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.12s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">学校・企業への出張授業<br>応急処置・溺水回避</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.16s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">啓発講習会<br>統計データと現場知識を組み合わせた活動</p></div>
+        </div>
+
+        <!-- 写真行 3 -->
+        <div class="ls-cell reveal-scale" style="--delay:0.12s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">鵠沼海岸<br>海水浴シーズン監視活動</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.16s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">地域コミュニティ講習<br>子供から大人まで</p></div>
+        </div>
+        <div class="ls-cell reveal-scale" style="--delay:0.20s">
+          <div class="ls-cell__overlay"><p class="ls-cell__caption">プール競技訓練<br>競技と安全活動の両立</p></div>
+        </div>
+
+      </div>
+
+    </section><!-- /#lifesaving -->
+
+    <!-- ============================================================
+         PROJECTS
+    ============================================================ -->
+    <section class="projects-section" id="projects">
+      <div class="projects-inner">
+        <div class="projects-header reveal-up">
+          <p class="section-eyebrow">PROJECTS</p>
+          <h2 class="section-title">活動・プロジェクト</h2>
+        </div>
+        <!-- Featured — 横長カード -->
+        <div class="project-card project-card--featured reveal-up">
+          <img src="assets/images/ryo_pool2.jpg" alt="HeroesPartner Athlete" class="project-card__bg-img">
+          <div class="project-card__featured-overlay"></div>
+          <div class="project-card__featured-content">
+            <img src="assets/images/image_logo.svg" alt="HEROES LDCS" class="project-card__featured-logo">
+            <h3 class="project-card__featured-title">HeroesPartner Athlete</h3>
+            <p class="project-card__featured-desc">アスリートとして社会課題解決に取り組む「HeroesPartner」に所属。スポーツを通じたソーシャルインパクトを創出。</p>
+            <a href="https://www.heros-pledge.jp/partner/ryo-ueno/" target="_blank" rel="noopener noreferrer" class="project-card__detail-btn">詳細を見る</a>
+          </div>
+        </div>
+
+        <!-- 横スクロール行 -->
+        <div class="projects-row-wrap">
+          <button class="projects-scroll-btn projects-scroll-btn--prev is-hidden" id="projPrev" aria-label="前へ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="projects-scroll-btn projects-scroll-btn--next" id="projNext" aria-label="次へ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        <div class="projects-scroll-row" id="projectsScrollRow">
+
+          <!-- Beach Flags Series -->
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/17.jpg" alt="Beach Flags Series" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">ビーチフラッグス専門のシリーズ戦。国内トップアスリートが競い合う独自の競技コミュニティ。</p></div>
             </div>
-            <h3 class="news-feat__title">ILS World Championships<br>参加報告 — 日本史上初のSERC金メダル</h3>
-            <p class="news-feat__excerpt">ゴールドコーストで開催された世界大会SERC種目で24カ国中1位。優先順位の判断、正確性、スピード、技術が噛み合い、チームで掴んだ日本初の金メダル。</p>
-            <a href="#" class="news-feat__link">
-              <span>詳細はこちら</span>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="10" x2="16" y2="10"/><polyline points="11 5 16 10 11 15"/></svg>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">SERIES · BEACH FLAGS</span>
+                <h3 class="project-card__title">Beach Flags Series</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://www.instagram.com/the_beach_flags_series/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 全日本選手権・競技活動 -->
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/mv_lifesavingsports.jpg" alt="全日本選手権・競技活動" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">ビーチフラッグス・サーフレースなど国内外の競技会に出場。日本代表として2024年世界選手権SERC種目で初優勝。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">COMPETITION · JLA</span>
+                <h3 class="project-card__title">全日本選手権・競技活動</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://ls.jla-lifesaving.or.jp/lifesaving-sports/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/watersafety/15/mv.jpg" alt="溺水防止シンポジウム" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">世界で年間約236,000人が溺水で命を失う現状に対し、JLA主催の啓発シンポジウムに登壇。水辺の安全普及に貢献。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">WATER SAFETY · JLA</span>
+                <h3 class="project-card__title">溺水防止シンポジウム</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://jla-lifesaving.or.jp/watersafety/world-drowning-prevention-day/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/17.jpg" alt="企業向け海体験プログラム" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">鵠沼・西浜を拠点に、企業の研修・チームビルディング向けの海体験プログラムを企画・運営。各団体の希望に合わせてカスタマイズ。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">CORPORATE · 西浜</span>
+                <h3 class="project-card__title">企業向け海体験プログラム</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://www.nishihama.org/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://www.nishihama.org/jr_youth/img/photo01_b.jpg" alt="ジュニアユース育成" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">2000年開始、現在約100名が活動するジュニアユースプログラム。海洋環境への親しみと自他の命を大切にする心を育む。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">YOUTH · 西浜</span>
+                <h3 class="project-card__title">ジュニアユース育成</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://www.nishihama.org/jr_youth/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/18.jpg" alt="水難事故防止啓発" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">地域・行政と連携した水難事故防止の啓発活動を展開。実践的な水辺の安全知識と救助技術の普及に取り組む。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">LECTURE · JLA</span>
+                <h3 class="project-card__title">水難事故防止啓発</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://jla-lifesaving.or.jp/watersafety/waterfront/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--img">
+            <div class="project-card__thumb">
+              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/15.jpg" alt="学校出張授業・講演" loading="lazy" class="project-card__img">
+              <div class="project-card__overlay"><p class="project-card__desc">小中高校への出張授業・講演を実施。「命を救う」ライフセーバーの視点から海洋安全教育とアスリートの生き方を届ける。</p></div>
+            </div>
+            <div class="project-card__meta">
+              <div class="project-card__meta-text">
+                <span class="project-card__cat">SCHOOL · LECTURE</span>
+                <h3 class="project-card__title">学校出張授業・講演</h3>
+              </div>
+              <div class="project-card__actions">
+                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
+                <a href="https://jla-lifesaving.or.jp/news/3645/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+          <!-- スクロールプログレスバー -->
+          <div class="projects-scroll-track" id="projScrollTrack">
+            <div class="projects-scroll-thumb" id="projScrollThumb"></div>
+          </div>
+        </div><!-- /.projects-row-wrap -->
+      </div>
+    </section><!-- /#projects -->
+
+    <!-- ============================================================
+         MEDIA
+    ============================================================ -->
+    <section class="media-section" id="media">
+      <div class="media-inner">
+        <div class="media-header reveal-up">
+          <p class="section-eyebrow on-dark">MEDIA</p>
+          <h2 class="section-title on-dark">メディア掲載</h2>
+        </div>
+
+        <!-- 左右交互タイムライン (古い順) -->
+        <div class="media-timeline">
+          <div class="media-timeline__line"></div>
+
+          <!-- 1 — 左 : 2022.12 タウンニュース キャプテン -->
+          <div class="media-tl-item media-tl-item--left reveal-up" style="--delay:0s">
+            <a href="https://www.townnews.co.jp/0601/2022/12/02/654157.html" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="assets/images/ryo2.jpeg" alt="タウンニュース 2022" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">タウンニュース</span>
+                <h3 class="media-tl-card__title">ライフセービングの世界大会に日本代表男子キャプテンとして出場</h3>
+                <span class="media-tl-card__date">2022.12.02</span>
+              </div>
+            </a>
+            <div class="media-tl-item__dot"></div>
+            <span class="media-tl-item__year">2022</span>
+          </div>
+
+          <!-- 2 — 右 : 2023 アスナウ #1 -->
+          <div class="media-tl-item media-tl-item--right reveal-up" style="--delay:0.06s">
+            <span class="media-tl-item__year">2023</span>
+            <div class="media-tl-item__dot"></div>
+            <a href="https://www.youtube.com/watch?v=fZlv1EanAmg" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://img.youtube.com/vi/fZlv1EanAmg/hqdefault.jpg" alt="アスナウ YouTube" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">アスナウ / YouTube</span>
+                <h3 class="media-tl-card__title">目指せオリンピック種目！！ライフセービングを広める長期計画</h3>
+                <span class="media-tl-card__date">2023</span>
+              </div>
             </a>
           </div>
-        </article>
 
-        <!-- サブ記事グリッド（3列） -->
-        <div class="news-grid">
-
-          <article class="news-card reveal-up" style="--delay:0.1s">
-            <div class="news-card__img-wrap">
-              <img src="assets/images/photo-lead-2.jpg" alt="" class="news-card__img">
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="news-badge news-badge--comp">COMPETITION</span>
-                <time class="news-date">2024.05.03</time>
+          <!-- 3 — 左 : 2023 アスナウ #2 -->
+          <div class="media-tl-item media-tl-item--left reveal-up" style="--delay:0.06s">
+            <a href="https://www.youtube.com/watch?v=2cPE9rFqSEM" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://img.youtube.com/vi/2cPE9rFqSEM/hqdefault.jpg" alt="アスナウ YouTube" loading="lazy" class="media-tl-card__img">
               </div>
-              <h4 class="news-card__title">全日本ライフセービング選手権<br>Board Race 3位入賞</h4>
-              <a href="#" class="news-card__link">詳細 →</a>
-            </div>
-          </article>
-
-          <article class="news-card reveal-up" style="--delay:0.2s">
-            <div class="news-card__img-wrap">
-              <img src="assets/images/photo-lead-3.jpg" alt="" class="news-card__img">
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="news-badge news-badge--comp">COMPETITION</span>
-                <time class="news-date">2023.09.17</time>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">アスナウ / YouTube</span>
+                <h3 class="media-tl-card__title">【悲報】ライフセーバー上野凌、反則級の行為に出る</h3>
+                <span class="media-tl-card__date">2023</span>
               </div>
-              <h4 class="news-card__title">Asian Lifesaving Championships<br>Surf Race Finalist</h4>
-              <a href="#" class="news-card__link">詳細 →</a>
-            </div>
-          </article>
+            </a>
+            <div class="media-tl-item__dot"></div>
+            <span class="media-tl-item__year"></span>
+          </div>
 
-          <article class="news-card reveal-up" style="--delay:0.3s">
-            <div class="news-card__img-wrap news-card__img-wrap--placeholder">
-              <span class="news-card__placeholder-num">2024</span>
-            </div>
-            <div class="news-card__body">
-              <div class="news-card__meta">
-                <span class="news-badge news-badge--activity">ACTIVITY</span>
-                <time class="news-date">2024.03.01</time>
+          <!-- 4 — 右 : 2023.07 JPSK -->
+          <div class="media-tl-item media-tl-item--right reveal-up" style="--delay:0.06s">
+            <span class="media-tl-item__year"></span>
+            <div class="media-tl-item__dot"></div>
+            <a href="https://jpsk.jp/articles/lifesaver2.html" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://cont.jpsk.jp/files/officialarticles/341_thumb.jpg" alt="JPSK" loading="lazy" class="media-tl-card__img">
               </div>
-              <h4 class="news-card__title">2024シーズン始動<br>トレーニングキャンプ報告</h4>
-              <a href="#" class="news-card__link">詳細 →</a>
-            </div>
-          </article>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">JPSK（日本の資格・検定）</span>
+                <h3 class="media-tl-card__title">ライフセーバーでコンサルタント。海の安全を守るために決めたデュアルキャリアの道</h3>
+                <span class="media-tl-card__date">2023.07.21</span>
+              </div>
+            </a>
+          </div>
 
-        </div>
+          <!-- 5 — 左 : 2023.10 タウンニュース 全日本 -->
+          <div class="media-tl-item media-tl-item--left reveal-up" style="--delay:0.06s">
+            <a href="https://www.townnews.co.jp/0601/2023/10/13/701757.html" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://www.townnews.co.jp/0601/images/a001249793_02.jpg" alt="タウンニュース 全日本" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">タウンニュース</span>
+                <h3 class="media-tl-card__title">ライフセービング「ビーチの守護神」が熱戦 西浜はチーム総合３位</h3>
+                <span class="media-tl-card__date">2023.10.13</span>
+              </div>
+            </a>
+            <div class="media-tl-item__dot"></div>
+            <span class="media-tl-item__year"></span>
+          </div>
+
+          <!-- 6 — 右 : 2023.11 湘南える -->
+          <div class="media-tl-item media-tl-item--right reveal-up" style="--delay:0.06s">
+            <span class="media-tl-item__year"></span>
+            <div class="media-tl-item__dot"></div>
+            <a href="https://shonan-el.co.jp/naturalist/231125-naturalist/" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://shonan-el.co.jp/wp-content/uploads/2023/11/231125-naturalist01-1024x1001.jpg" alt="湘南える" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">湘南える新聞社</span>
+                <h3 class="media-tl-card__title">vol.49 上野 凌さん — ナチュラリストシリーズ</h3>
+                <span class="media-tl-card__date">2023.11.22</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 7 — 左 : 2024.09 タウンニュース 世界大会 -->
+          <div class="media-tl-item media-tl-item--left reveal-up" style="--delay:0.06s">
+            <a href="https://www.townnews.co.jp/0601/2024/09/06/749936.html" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://www.townnews.co.jp/0601/images/a001322258_02.jpg" alt="タウンニュース 世界大会" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">タウンニュース</span>
+                <h3 class="media-tl-card__title">ライフセービング 世界大会で悲願の初優勝 救助技術競う「SERC」</h3>
+                <span class="media-tl-card__date">2024.09.06</span>
+              </div>
+            </a>
+            <div class="media-tl-item__dot"></div>
+            <span class="media-tl-item__year">2024</span>
+          </div>
+
+          <!-- 8 — 右 : 2025.01 HEROs PLEDGE -->
+          <div class="media-tl-item media-tl-item--right reveal-up" style="--delay:0.06s">
+            <span class="media-tl-item__year">2025</span>
+            <div class="media-tl-item__dot"></div>
+            <a href="https://www.heros-pledge.jp/news/uenoryo/" target="_blank" rel="noopener noreferrer" class="media-tl-card">
+              <div class="media-tl-card__img-wrap">
+                <img src="https://prcdn.freetls.fastly.net/release_image/123524/21/123524-21-2785d26d840dfdd1e94f3e0f812206d3-491x387.jpg" alt="HEROs PLEDGE" loading="lazy" class="media-tl-card__img">
+              </div>
+              <div class="media-tl-card__body">
+                <span class="media-tl-card__outlet">HEROs PLEDGE / 日本財団</span>
+                <h3 class="media-tl-card__title">現役ライフセービング日本代表キャプテンがパートナーアスリートに参画</h3>
+                <span class="media-tl-card__date">2025.01.30</span>
+              </div>
+            </a>
+          </div>
+
+        </div><!-- /.media-timeline -->
+
+        <p class="media-note reveal-up">取材・出演のご依頼は <a href="#contact" class="media-note__link">CONTACT</a> よりお待ちしております。</p>
       </div>
-    </section>
+    </section><!-- /#media -->
 
     <!-- ============================================================
-         HIGHLIGHT — 動画アーカイブ
+         PARTNERS
     ============================================================ -->
-    <section class="hl-section" id="highlight">
+    <section class="partners-section" id="partners">
+      <div class="partners-inner">
+        <div class="partners-header reveal-up">
+          <p class="section-eyebrow">PARTNERS</p>
+          <h2 class="section-title">所属・スポンサー</h2>
+        </div>
 
-      <!-- ヘッダー -->
-      <div class="hl-section__header">
-        <p class="section-eyebrow on-dark reveal-up">HIGHLIGHT</p>
-        <h2 class="section-title on-dark reveal-up">ハイライト</h2>
-      </div>
+        <div class="partners-group reveal-up">
+          <h3 class="partners-group__title">所属</h3>
+          <div class="affil-logos">
+            <div class="affil-logo-item">
+              <img src="assets/images/jla_logo.png" alt="公益財団法人 日本ライフセービング協会" class="affil-logo-img">
+              <span class="affil-logo-label">公益財団法人<br>日本ライフセービング協会</span>
+            </div>
+            <div class="affil-logo-item">
+              <img src="assets/images/nishihama_logo.png" alt="特定非営利活動法人 西浜サーフライフセービングクラブ" class="affil-logo-img">
+              <span class="affil-logo-label">特定非営利活動法人<br>西浜サーフライフセービングクラブ</span>
+            </div>
+            <div class="affil-logo-item">
+              <img src="assets/images/Deloitte_logo.png" alt="Deloitte" class="affil-logo-img affil-logo-img--wide">
+              <span class="affil-logo-label">Deloitte Tohmatsu</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- 動画コンテンツ（PC余白あり） -->
-      <div class="hl-content">
-
-      <!-- メイン動画プレーヤー -->
-      <div class="hl-main reveal-scale">
-        <video
-          class="hl-main__vid"
-          id="hlVid"
-          src="assets/video/ライフセービングとは.mp4"
-          autoplay muted loop playsinline
-        ></video>
-        <!-- サウンドトグル -->
-        <button class="hl-main__sound" id="hlSoundBtn" aria-label="音声オン/オフ">
-          <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <line x1="23" y1="9" x2="17" y2="15"></line>
-            <line x1="17" y1="9" x2="23" y2="15"></line>
-          </svg>
-          <svg class="icon icon--unmuted hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          </svg>
-        </button>
-        <!-- 現在再生中ラベル -->
-        <div class="hl-main__label" id="hlLabel">
-          <span class="hl-main__label-tag">LIFESAVING JAPAN</span>
-          <span class="hl-main__label-title">ライフセービングとは</span>
+        <div class="partners-group reveal-up" style="--delay:0.12s">
+          <h3 class="partners-group__title">スポンサー</h3>
+          <div class="sponsors-grid">
+            <div class="sponsor-slot sponsor-slot--soon"><span>RECRUITING</span></div>
+            <div class="sponsor-slot sponsor-slot--soon"><span>RECRUITING</span></div>
+            <div class="sponsor-slot sponsor-slot--soon"><span>RECRUITING</span></div>
+            <div class="sponsor-slot sponsor-slot--soon"><span>RECRUITING</span></div>
+          </div>
+          <a href="#contact" class="btn btn--outline-navy partners-cta">スポンサーのご相談はこちら →</a>
         </div>
       </div>
-
-      <!-- サムネイル行（クリックで切り替え） -->
-      <div class="hl-thumbs">
-        <button class="hl-thumb active" data-src="assets/video/ライフセービングとは.mp4" data-title="ライフセービングとは">
-          <div class="hl-thumb__inner">
-            <span class="hl-thumb__num">01</span>
-            <span class="hl-thumb__title">ライフセービングとは</span>
-            <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </button>
-        <button class="hl-thumb" data-src="assets/video/highlight.mp4" data-title="Competition Highlights">
-          <div class="hl-thumb__inner">
-            <span class="hl-thumb__num">02</span>
-            <span class="hl-thumb__title">Competition Highlights</span>
-            <svg class="hl-thumb__play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </button>
-        <button class="hl-thumb hl-thumb--soon" disabled>
-          <div class="hl-thumb__inner">
-            <span class="hl-thumb__num">03</span>
-            <span class="hl-thumb__title">COMING SOON</span>
-          </div>
-        </button>
-        <button class="hl-thumb hl-thumb--soon" disabled>
-          <div class="hl-thumb__inner">
-            <span class="hl-thumb__num">04</span>
-            <span class="hl-thumb__title">COMING SOON</span>
-          </div>
-        </button>
-      </div>
-
-      </div><!-- /.hl-content -->
-
-    </section>
+    </section><!-- /#partners -->
 
     <!-- ============================================================
          CONTACT
     ============================================================ -->
     <section class="contact" id="contact">
-      <!-- 背景デコ -->
-      <span class="contact__deco" aria-hidden="true">RYO</span>
-
       <div class="contact__inner">
-        <h2 class="contact__title reveal-up">GET IN TOUCH</h2>
 
-        <!-- SNS 3点 -->
+        <div class="contact__header reveal-up">
+          <p class="section-eyebrow on-dark">CONTACT</p>
+          <h2 class="section-title on-dark">お問い合わせ</h2>
+          <p class="contact__subtitle">講演・スポンサー・取材のご依頼はお気軽にどうぞ</p>
+        </div>
+
+        <!-- お問い合わせリスト -->
+        <div class="contact-list reveal-up" style="--delay:0.1s">
+
+          <a href="mailto:contact@ryoueno.com?subject=講演依頼" class="contact-list-item">
+            <span class="contact-list-item__num">01</span>
+            <span class="contact-list-item__type">講演依頼</span>
+            <span class="contact-list-item__desc">学校・企業・地域への講演 / 出張授業・登壇</span>
+            <span class="contact-list-item__arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="mailto:contact@ryoueno.com?subject=スポンサー相談" class="contact-list-item">
+            <span class="contact-list-item__num">02</span>
+            <span class="contact-list-item__type">スポンサー相談</span>
+            <span class="contact-list-item__desc">アスリートスポンサーシップ / パートナーシップ</span>
+            <span class="contact-list-item__arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="mailto:contact@ryoueno.com?subject=取材依頼" class="contact-list-item">
+            <span class="contact-list-item__num">03</span>
+            <span class="contact-list-item__type">取材依頼</span>
+            <span class="contact-list-item__desc">TV・雑誌・ラジオ・Web / メディア取材</span>
+            <span class="contact-list-item__arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+        </div>
+
+        <!-- SNS -->
         <div class="contact__sns reveal-up">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact__sns-item" aria-label="Instagram">
             <div class="contact__sns-icon">
@@ -591,17 +801,10 @@
           </a>
         </div>
 
-        <!-- コンタクトボタン -->
-        <a href="mailto:contact@ryoueno.com" class="contact__mail reveal-up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          CONTACT
-        </a>
       </div>
-    </section>
+    </section><!-- /#contact -->
 
-    <!-- ============================================================
-         FOOTER
-    ============================================================ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__left">
@@ -613,7 +816,6 @@
     </footer>
 
     </div><!-- /page-body -->
-
   </div><!-- /site-content -->
 
   <!-- CURSOR -->

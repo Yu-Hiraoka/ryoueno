@@ -350,7 +350,154 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 /* ----------------------------------------------------------------
-   11. 画像ロード時にプレースホルダーを非表示
+   11. Career タブ切り替え
+---------------------------------------------------------------- */
+(function () {
+  const tabs  = document.querySelectorAll('.career-tab');
+  const panes = document.querySelectorAll('.career-pane');
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+
+      tabs.forEach(t => {
+        t.classList.toggle('career-tab--active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
+      });
+
+      panes.forEach(pane => {
+        pane.classList.toggle('career-pane--active', pane.dataset.pane === target);
+      });
+    });
+  });
+})();
+
+/* ----------------------------------------------------------------
+   12. LIFESAVING グリッド — タップでオーバーレイ表示 (モバイル)
+---------------------------------------------------------------- */
+(function () {
+  const cells = document.querySelectorAll('.ls-cell');
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      const isActive = cell.classList.contains('is-active');
+      cells.forEach(c => c.classList.remove('is-active'));
+      if (!isActive) cell.classList.add('is-active');
+    });
+  });
+})();
+
+/* ----------------------------------------------------------------
+   13. PROJECTS — スクロールナビボタン
+---------------------------------------------------------------- */
+(function () {
+  const row     = document.getElementById('projectsScrollRow');
+  const btnPrev = document.getElementById('projPrev');
+  const btnNext = document.getElementById('projNext');
+  if (!row || !btnPrev || !btnNext) return;
+
+  const STEP = 185 * 2;
+
+  const updateBtns = () => {
+    btnPrev.classList.toggle('is-hidden', row.scrollLeft <= 4);
+    btnNext.classList.toggle('is-hidden', row.scrollLeft + row.clientWidth >= row.scrollWidth - 4);
+  };
+
+  btnPrev.addEventListener('click', () => row.scrollBy({ left: -STEP, behavior: 'smooth' }));
+  btnNext.addEventListener('click', () => row.scrollBy({ left:  STEP, behavior: 'smooth' }));
+  row.addEventListener('scroll', updateBtns, { passive: true });
+  updateBtns();
+})();
+
+/* ----------------------------------------------------------------
+   13b. PROJECTS — スクロールプログレスバー (ドラッグ対応)
+---------------------------------------------------------------- */
+(function () {
+  const row   = document.getElementById('projectsScrollRow');
+  const track = document.getElementById('projScrollTrack');
+  const thumb = document.getElementById('projScrollThumb');
+  const wrap  = row?.closest('.projects-row-wrap');
+  if (!row || !track || !thumb) return;
+
+  /* サムネイル位置・幅を更新 */
+  const update = () => {
+    const scrollable  = row.scrollWidth - row.clientWidth;
+    const thumbW      = Math.max(24, (row.clientWidth / row.scrollWidth) * track.clientWidth);
+    const thumbLeft   = scrollable > 0
+      ? (row.scrollLeft / scrollable) * (track.clientWidth - thumbW)
+      : 0;
+    thumb.style.width = thumbW + 'px';
+    thumb.style.left  = thumbLeft + 'px';
+    wrap?.classList.toggle('at-end', row.scrollLeft + row.clientWidth >= row.scrollWidth - 4);
+  };
+
+  row.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  /* ---- ドラッグスクロール ---- */
+  let dragging = false, startX = 0, startScroll = 0;
+
+  const startDrag = (clientX) => {
+    dragging    = true;
+    startX      = clientX;
+    startScroll = row.scrollLeft;
+    thumb.classList.add('is-dragging');
+  };
+
+  const moveDrag = (clientX) => {
+    if (!dragging) return;
+    const dx         = clientX - startX;
+    const scrollable = row.scrollWidth - row.clientWidth;
+    const trackRange = track.clientWidth - thumb.offsetWidth;
+    row.scrollLeft   = startScroll + (dx / trackRange) * scrollable;
+  };
+
+  const endDrag = () => {
+    dragging = false;
+    thumb.classList.remove('is-dragging');
+  };
+
+  thumb.addEventListener('mousedown',  (e) => { startDrag(e.clientX); e.preventDefault(); });
+  document.addEventListener('mousemove', (e) => moveDrag(e.clientX));
+  document.addEventListener('mouseup',   endDrag);
+
+  thumb.addEventListener('touchstart', (e) => { startDrag(e.touches[0].clientX); }, { passive: true });
+  document.addEventListener('touchmove', (e) => { if (dragging) moveDrag(e.touches[0].clientX); }, { passive: true });
+  document.addEventListener('touchend',  endDrag);
+
+  /* トラッククリックでジャンプ */
+  track.addEventListener('click', (e) => {
+    if (e.target === thumb) return;
+    const rect       = track.getBoundingClientRect();
+    const ratio      = (e.clientX - rect.left) / rect.width;
+    const scrollable = row.scrollWidth - row.clientWidth;
+    row.scrollLeft   = ratio * scrollable;
+  });
+})();
+
+/* ----------------------------------------------------------------
+   15. PROJECTS — 情報ボタンでオーバーレイ表示
+---------------------------------------------------------------- */
+(function () {
+  const cards = document.querySelectorAll('.project-card--img');
+  cards.forEach(card => {
+    const infoBtn = card.querySelector('.project-card__info-btn');
+    if (!infoBtn) return;
+    infoBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = card.classList.contains('is-active');
+      cards.forEach(c => c.classList.remove('is-active'));
+      if (!isActive) card.classList.add('is-active');
+    });
+  });
+  document.addEventListener('click', () => {
+    cards.forEach(c => c.classList.remove('is-active'));
+  });
+})();
+
+/* ----------------------------------------------------------------
+   14. 画像ロード時にプレースホルダーを非表示
 ---------------------------------------------------------------- */
 document.querySelectorAll('.gallery__img, .photo-lead__img, .news-card__img').forEach(img => {
   const hide = () => {
@@ -360,3 +507,26 @@ document.querySelectorAll('.gallery__img, .photo-lead__img, .news-card__img').fo
   if (img.complete && img.naturalWidth) hide();
   else img.addEventListener('load', hide);
 });
+
+/* ----------------------------------------------------------------
+   16. スクロールスパイ — ナビ active 状態
+---------------------------------------------------------------- */
+(function () {
+  const sections  = Array.from(document.querySelectorAll('section[id]'));
+  const navLinks  = Array.from(document.querySelectorAll('.nav__link[href^="#"]'));
+  if (!sections.length || !navLinks.length) return;
+
+  const setActive = (id) => {
+    navLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+    });
+  };
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-35% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => obs.observe(s));
+})();
