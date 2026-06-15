@@ -160,26 +160,27 @@ updateSoundIcon();
 
 
 /* ----------------------------------------------------------------
-   4-B. Hero動画 ループフェードアウト（CSS transitionで滑らか）
+   4-B. Hero動画 ①→⑤→①... ループ切り替え（0.5s フェード）
 ---------------------------------------------------------------- */
 (function () {
   const video = document.getElementById('heroVideo');
   const fade  = document.getElementById('heroLoopFade');
   if (!video || !fade) return;
 
-  let triggered = false;
+  const srcs = [
+    'assets/video/素材提供①.mp4',
+    'assets/video/素材提供⑤.mp4',
+  ];
+  let current = 0;
 
-  video.addEventListener('timeupdate', () => {
-    if (!isFinite(video.duration)) return;
-    const remaining = video.duration - video.currentTime;
-
-    if (remaining <= 1.5 && !triggered) {
-      triggered = true;
-      fade.style.opacity = '1';       // CSS transition が滑らかにフェードアウト
-    } else if (video.currentTime < 0.3 && triggered) {
-      triggered = false;
-      fade.style.opacity = '0';       // ループ後にフェードイン
-    }
+  video.addEventListener('ended', () => {
+    fade.style.opacity = '1';
+    setTimeout(() => {
+      current = (current + 1) % srcs.length;
+      video.src = srcs[current];
+      video.play();
+      setTimeout(() => { fade.style.opacity = '0'; }, 50);
+    }, 500);
   });
 })();
 

@@ -373,7 +373,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   opacity: 0;
   pointer-events: none;
   z-index: 2;
-  transition: opacity 1.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 /* ----------------------------------------------------------------
