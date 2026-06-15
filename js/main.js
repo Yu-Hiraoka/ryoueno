@@ -158,6 +158,31 @@ soundBtn?.addEventListener('click', () => {
 // 初期状態を同期（動画は muted=true でロード）
 updateSoundIcon();
 
+
+/* ----------------------------------------------------------------
+   4-B. Hero動画 ループフェードアウト（CSS transitionで滑らか）
+---------------------------------------------------------------- */
+(function () {
+  const video = document.getElementById('heroVideo');
+  const fade  = document.getElementById('heroLoopFade');
+  if (!video || !fade) return;
+
+  let triggered = false;
+
+  video.addEventListener('timeupdate', () => {
+    if (!isFinite(video.duration)) return;
+    const remaining = video.duration - video.currentTime;
+
+    if (remaining <= 1.5 && !triggered) {
+      triggered = true;
+      fade.style.opacity = '1';       // CSS transition が滑らかにフェードアウト
+    } else if (video.currentTime < 0.3 && triggered) {
+      triggered = false;
+      fade.style.opacity = '0';       // ループ後にフェードイン
+    }
+  });
+})();
+
 /* ----------------------------------------------------------------
    5. Highlight Video — 音声トグル & サムネイル切替
 ---------------------------------------------------------------- */
@@ -333,19 +358,35 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* ----------------------------------------------------------------
-   10. Ticker — 縦スライド自動再生
+   10. Ticker — 縦スライド / ドットインジケーター
 ---------------------------------------------------------------- */
 (function () {
-  const track = document.getElementById('tickerVTrack');
+  const track     = document.getElementById('tickerVTrack');
+  const dotsWrap  = document.getElementById('tickerDots');
   if (!track) return;
   const items = track.querySelectorAll('.ticker__vitem');
   if (!items.length) return;
+  const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.ticker__dot')) : [];
   const ITEM_H = 48;
   let current = 0;
-  setInterval(() => {
-    current = (current + 1) % items.length;
+
+  let timer;
+
+  function goTo(idx) {
+    current = (idx + items.length) % items.length;
     track.style.transform = `translateY(-${current * ITEM_H}px)`;
-  }, 4000);
+    dots.forEach((d, i) => d.classList.toggle('ticker__dot--active', i === current));
+  }
+
+  function startAuto() { timer = setInterval(() => goTo(current + 1), 4000); }
+  function resetAuto() { clearInterval(timer); startAuto(); }
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => { goTo(Number(d.dataset.idx)); resetAuto(); });
+  });
+
+  goTo(0);
+  startAuto();
 })();
 
 

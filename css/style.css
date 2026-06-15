@@ -118,7 +118,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-blue);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 1.25rem;
 }
 
 /* on dark bg */
@@ -126,7 +126,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -288,6 +288,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 .nav.on-content .nav__link.is-active { color: var(--color-navy); }
 .nav.on-content .nav__link.is-active::after { background: var(--color-navy); opacity: 0.55; }
 
+
 /* ---- nav 常時スクリム: テキストがナビ下を通る際に隠す ---- */
 .nav::before {
   content: '';
@@ -343,6 +344,12 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   object-fit: cover;
   object-position: center center;
   transition: filter 0.08s linear;
+  animation: heroFadeIn 2s 0.2s ease-out both;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .hero-bg__overlay {
@@ -357,6 +364,16 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
     rgba(10, 30, 61, 0.8)  100%
   );
   transition: background 0.08s linear;
+}
+
+.hero-bg__loop-fade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 1.5s ease;
 }
 
 /* ----------------------------------------------------------------
@@ -376,7 +393,8 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 .hero__name-block {
   position: absolute;
   bottom: 10vh;
-  left: var(--space-lg);
+  right: var(--space-lg);
+  text-align: left;
 }
 
 .hero__name-label {
@@ -579,18 +597,10 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 }
 .photo-lead__item:hover .photo-lead__img { transform: scale(1.04); }
 
-/* ホバー時キャプション */
+/* ホバー時キャプション — 非表示 */
 .photo-lead__caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 3rem 1.4rem 1.4rem;
-  background: linear-gradient(to top, rgba(10,30,61,0.9) 0%, rgba(10,30,61,0.4) 70%, transparent 100%);
-  transform: translateY(100%);
-  transition: transform 0.55s var(--ease-out-expo);
-  z-index: 3;
-  pointer-events: none;
+  display: none;
 }
-.photo-lead__item:hover .photo-lead__caption { transform: translateY(0); }
 
 .photo-lead__caption-date {
   display: block;
@@ -615,19 +625,23 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
    9. Ticker — 縦スライド（中央揃え・バッジ付き）
 ---------------------------------------------------------------- */
 .ticker {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 90;
   height: 48px;
   background: var(--color-navy);
-  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 0 max(1.5rem, calc((100vw - var(--max-width)) / 2 + 1.5rem));
+  gap: 1rem;
+  outline: 1px solid rgba(255,255,255,0.18);
 }
 
 .ticker__vwindow {
   overflow: hidden;
   height: 48px;
-  max-width: var(--max-width);
-  width: 100%;
+  flex: 1;
+  min-width: 0;
 }
 
 .ticker__vtrack {
@@ -642,9 +656,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   height: 48px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.9rem;
-  padding: 0 2rem;
   overflow: hidden;
 }
 
@@ -653,15 +665,19 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 26px;
+  height: 22px;
+  padding: 0 0.5rem;
   background: var(--color-blue);
   font-family: var(--font-heading);
-  font-size: 0.5rem;
+  font-size: 0.48rem;
   font-weight: 700;
-  letter-spacing: 0.25em;
   color: var(--color-white);
   text-transform: uppercase;
+}
+
+.ticker__badge > span {
+  letter-spacing: 0.25em;
+  margin-right: -0.25em;
 }
 
 .ticker__text {
@@ -682,10 +698,34 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   margin-right: 0.6em;
 }
 
+.ticker__dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.ticker__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.35s, transform 0.35s;
+}
+
+.ticker__dot--active {
+  background: rgba(255,255,255,0.9);
+  transform: scale(1.3);
+}
+
 @media (max-width: 768px) {
-  .ticker__vitem { padding: 0 1rem; gap: 0.6rem; }
-  .ticker__badge { width: 32px; height: 22px; font-size: 0.42rem; }
-  .ticker__text  { font-size: 0.62rem; }
+  .ticker { padding: 0 1rem; gap: 0.6rem; }
+  .ticker__text { font-size: 0.62rem; }
 }
 
 /* ----------------------------------------------------------------
@@ -886,6 +926,8 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   padding: 5rem max(2.5rem, 4vw) 5rem
            max(2rem, calc((100vw - var(--max-width)) / 2 + 2rem));
 }
+
+.story__text-col .section-eyebrow { margin-bottom: 0; }
 
 /* 名前ブロック */
 .story__name-block { line-height: 1; }
@@ -1822,7 +1864,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 ---------------------------------------------------------------- */
 .contact {
   background: var(--color-navy);
-  padding: 6rem 0 7rem;
+  padding: 3rem 0 3.5rem;
   overflow: hidden;
   position: relative;
 }
@@ -1843,39 +1885,126 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   margin-bottom: 3rem;
 }
 
+/* Instagram フィード */
+.insta-feed {
+  margin: 3rem 0;
+}
+
+.insta-feed__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.insta-feed__icon {
+  width: 18px;
+  height: 18px;
+  color: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+.insta-feed__handle {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.insta-feed__handle:hover { color: rgba(255,255,255,0.9); }
+
+/* --- グリッド本体 --- */
+.insta-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.insta-cell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+}
+
+.insta-cell__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.insta-cell__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.1) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.85rem 1rem;
+  gap: 0.35rem;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.insta-cell:hover .insta-cell__img {
+  transform: scale(1.04);
+  filter: brightness(0.85);
+}
+
+.insta-cell:hover .insta-cell__overlay {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .insta-feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+  }
+}
+
 .contact__sns {
   display: flex;
-  gap: 3.5rem;
+  gap: 2.5rem;
   align-items: flex-start;
-  padding-top: 3.5rem;
+  padding-top: 2rem;
   justify-content: center;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  margin-top: 3.5rem;
+  margin-top: 2rem;
 }
 
 .contact__sns-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.45rem;
   text-decoration: none;
   transition: transform var(--dur-base) var(--ease-out-expo), opacity var(--dur-base);
 }
-.contact__sns-item:hover { transform: translateY(-6px); opacity: 0.8; }
+.contact__sns-item:hover { transform: translateY(-4px); opacity: 0.8; }
 
 .contact__sns-icon {
-  width: 52px;
-  height: 52px;
+  width: 36px;
+  height: 36px;
   color: white;
 }
 .contact__sns-icon svg { width: 100%; height: 100%; }
 
 .contact__sns-name {
-  font-family: var(--font-heading);
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
 }
 
@@ -2012,6 +2141,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   .nav__hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--color-navy); }
 
   .hero__name { font-size: clamp(4rem, 22vw, 8rem); }
+  .hero-bg__video { object-position: 30% center; }
 
   /* スクロールインジケーター: モバイルでは中央下に */
   .hero__scroll-indicator {
@@ -2056,8 +2186,9 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
     flex-direction: column;
   }
   .photo-lead__grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 62% 36%;
     gap: 6px;
     flex: 1;
     overflow: hidden;
@@ -2066,13 +2197,23 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
     position: relative;
     inset: unset;
     transform: translateY(36px);
-    flex-shrink: 0;
+    min-height: 0;
   }
   /* モバイルでは revealed も in-view も同じ効果（どちらも使える） */
   .photo-lead__item.revealed,
   .photo-lead__item.in-view { opacity: 1; transform: none; }
-  .photo-lead__item--main { flex: 2.5; min-height: 0; }
-  .photo-lead__item--sm   { flex: 1.5; min-height: 0; }
+  .photo-lead__item--main {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .photo-lead__item--sm:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .photo-lead__item--sm:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
 
   .news__grid  { grid-template-columns: 1fr; }
 
@@ -2400,31 +2541,72 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   padding-right: 52%;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 2.5rem;
 }
 
-.hero-stat {
+/* トップ実績 */
+.athlete-top {
   transition-delay: var(--delay, 0s);
 }
 
-.hero-stat__num {
+.athlete-top__year {
   display: block;
-  font-family: var(--font-display);
-  font-size: clamp(7rem, 14vw, 13rem);
-  line-height: 0.88;
-  color: #c8a822;
-  letter-spacing: -0.02em;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.6rem;
 }
 
-.hero-stat__label {
+.athlete-top__title {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.athlete-top__note {
   display: block;
-  margin-top: 0.6rem;
-  font-family: var(--font-heading);
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+}
+
+/* 4指標 */
+.athlete-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  transition-delay: var(--delay, 0s);
+}
+
+.athlete-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.athlete-metric__num {
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  line-height: 1;
+}
+
+.athlete-metric__num small {
+  font-size: 0.55em;
   font-weight: 400;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.5;
-  letter-spacing: 0.04em;
+  margin-left: 0.1em;
+  color: rgba(255,255,255,0.5);
+}
+
+.athlete-metric__label {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+  line-height: 1.4;
 }
 
 /* ---- 共通ヘッダー ---- */
@@ -2514,16 +2696,18 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   }
 
   .athlete-hero-stats {
-    padding: 3rem 2rem;
-    padding-right: 2rem;
-    gap: 1.5rem;
+    padding: 3.5rem 1.5rem;
+    padding-right: 1.5rem;
+    gap: 2rem;
   }
 
-  .hero-stat__num { font-size: clamp(3.5rem, 15vw, 5rem); }
+  .athlete-top__title {
+    font-size: clamp(1.6rem, 8vw, 2.8rem);
+  }
 
-  .hero-stat__label {
-    font-size: 0.82rem;
-    margin-top: 0.3rem;
+  .athlete-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1rem;
   }
 }
 
@@ -2664,6 +2848,73 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 }
 
 .projects-header { margin-bottom: 3.5rem; }
+
+/* ---- プロジェクト縦リスト ---- */
+.proj-v-list {
+  margin-top: 2rem;
+}
+
+.proj-v-item {
+  display: grid;
+  grid-template-columns: 1fr 1.5rem;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+  text-decoration: none;
+}
+
+.proj-v-list .proj-v-item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.proj-v-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.proj-v-item__cat {
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-blue);
+  text-transform: uppercase;
+}
+
+.proj-v-item__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  font-weight: 800;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.proj-v-item__desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-top: 0.15rem;
+  max-width: 48rem;
+}
+
+.proj-v-item__arrow {
+  width: 18px;
+  height: 18px;
+  color: rgba(10,30,61,0.2);
+  margin-top: 0.6rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .proj-v-item {
+    grid-template-columns: 1fr 1.2rem;
+    gap: 0 1rem;
+    padding: 1.4rem 0;
+  }
+}
 
 /* ---- Featured カード ---- */
 .project-card--featured {
@@ -3292,10 +3543,10 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 
 .contact-list-item {
   display: grid;
-  grid-template-columns: 3.5rem 1fr 1fr 2.5rem;
+  grid-template-columns: 1fr 1fr 1.5rem;
   align-items: center;
-  gap: 0 2rem;
-  padding: 2.2rem 0;
+  gap: 0 1.5rem;
+  padding: 1rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   text-decoration: none;
   position: relative;
@@ -3316,46 +3567,34 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
 .contact-list-item:hover::before { transform: scaleX(1); }
 .contact-list-item:hover { padding-left: 1.2rem; }
 
-.contact-list-item__num {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.18);
-  position: relative;
-  transition: color 0.3s;
-}
-
-.contact-list-item:hover .contact-list-item__num { color: var(--color-blue-light); }
-
 .contact-list-item__type {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-  font-weight: 800;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--color-white);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   position: relative;
 }
 
 .contact-list-item__desc {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: rgba(255,255,255,0.3);
   letter-spacing: 0.02em;
   position: relative;
 }
 
 .contact-list-item__arrow {
-  width: 26px; height: 26px;
+  width: 18px; height: 18px;
   color: rgba(255,255,255,0.2);
   position: relative;
   transition: color 0.3s, transform 0.35s var(--ease-out-expo);
 }
 
 .contact-list-item__arrow svg { width: 100%; height: 100%; }
-.contact-list-item:hover .contact-list-item__arrow { color: var(--color-white); transform: translateX(6px); }
+.contact-list-item:hover .contact-list-item__arrow { color: var(--color-white); transform: translateX(4px); }
 
 @media (max-width: 768px) {
   .contact__inner { gap: 0; }
-  .contact-list-item { grid-template-columns: 2.5rem 1fr 2rem; gap: 0 1rem; padding: 1.5rem 0; }
+  .contact-list-item { grid-template-columns: 1fr 1.5rem; gap: 0 0.75rem; padding: 0.85rem 0; }
   .contact-list-item__desc { display: none; }
   .career-item { grid-template-columns: 4rem 1fr; gap: 0.4rem 1rem; }
   .story__philosophy { padding: 4.5rem 1.5rem; }
@@ -3373,7 +3612,7 @@ body.cursor-hover .cursor-follower { width: 56px; height: 56px; opacity: 0.6; }
   .projects-section { padding: 3.5rem 0 4rem; }
   .media-section    { padding: 3.5rem 0 4rem; }
   .partners-section { padding: 3.5rem 0 4rem; }
-  .contact          { padding: 3.5rem 0 4rem; }
+  .contact          { padding: 2rem 0 2.5rem; }
   .lifesaving-section { padding-bottom: 3rem; }
   .athlete-block--video { padding: 2.5rem 0 3rem; }
 }
