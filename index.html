@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="assets/images/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -40,9 +40,10 @@
   ============================================================ -->
   <div class="hero-bg" id="heroBg">
     <video class="hero-bg__video" id="heroVideo"
-      src="assets/video/ライフセービングとは.mp4"
+      src="assets/video/素材提供①.mp4"
       autoplay muted loop playsinline></video>
     <div class="hero-bg__overlay" id="heroOverlay"></div>
+    <div class="hero-bg__loop-fade" id="heroLoopFade"></div>
   </div>
 
   <!-- ============================================================
@@ -55,7 +56,7 @@
     </div>
   </section>
 
-  <!-- 固定UIパーツ -->
+  <!-- 固定UIパーツ
   <div class="hero__controls" id="heroControls">
     <button class="hero__sound-btn" id="soundBtn" aria-label="音声オン/オフ">
       <svg class="icon icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -73,7 +74,7 @@
   <div class="hero__scroll-indicator" id="heroScrollInd">
     <div class="hero__scroll-line"></div>
     <span class="hero__scroll-text">SCROLL</span>
-  </div>
+  </div> -->
 
   <!-- ============================================================
        SITE CONTENT
@@ -119,22 +120,23 @@
       <div class="ticker__vwindow">
         <div class="ticker__vtrack" id="tickerVTrack">
           <div class="ticker__vitem">
-            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__badge"><span>NEWS</span></span>
             <span class="ticker__text"><em>2024.07.14</em> ILS World Championships 参加報告 — 日本代表として世界の舞台へ</span>
           </div>
           <div class="ticker__vitem">
-            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__badge"><span>NEWS</span></span>
             <span class="ticker__text"><em>2024.05.03</em> 全日本ライフセービング選手権 Board Race 3位入賞</span>
           </div>
           <div class="ticker__vitem">
-            <span class="ticker__badge">NEWS</span>
+            <span class="ticker__badge"><span>NEWS</span></span>
             <span class="ticker__text"><em>2023.09.17</em> Asian Lifesaving Championships Surf Race Finalist</span>
           </div>
-          <div class="ticker__vitem">
-            <span class="ticker__badge">NEWS</span>
-            <span class="ticker__text"><em>2024.03.01</em> 2024シーズン始動 — トレーニングキャンプ報告</span>
-          </div>
         </div>
+      </div>
+      <div class="ticker__dots" id="tickerDots">
+        <button class="ticker__dot ticker__dot--active" data-idx="0" aria-label="1件目"></button>
+        <button class="ticker__dot" data-idx="1" aria-label="2件目"></button>
+        <button class="ticker__dot" data-idx="2" aria-label="3件目"></button>
       </div>
     </div>
 
@@ -250,15 +252,33 @@
         <div class="athlete-hero-stats reveal-up">
           <p class="section-eyebrow on-dark" style="--delay:0s">ATHLETE</p>
 
-          <div class="hero-stat" style="--delay:0.1s">
-            <span class="hero-stat__num" data-target="20">0</span>
-            <span class="hero-stat__label">All-Japan Championship titles</span>
+          <!-- トップ実績 -->
+          <div class="athlete-top" style="--delay:0.1s">
+            <span class="athlete-top__year">2024</span>
+            <h2 class="athlete-top__title">SERC世界選手権<br>初優勝</h2>
+            <span class="athlete-top__note">ILS World Championships — Super ERC</span>
           </div>
 
-          <div class="hero-stat" style="--delay:0.2s">
-            <span class="hero-stat__num">1</span>
-            <span class="hero-stat__label">World Championship titles</span>
+          <!-- 4指標 -->
+          <div class="athlete-metrics" style="--delay:0.2s">
+            <div class="athlete-metric">
+              <span class="athlete-metric__num">20</span>
+              <span class="athlete-metric__label">全日本選手権優勝</span>
+            </div>
+            <div class="athlete-metric">
+              <span class="athlete-metric__num">10<small>年</small></span>
+              <span class="athlete-metric__label">日本代表選出</span>
+            </div>
+            <div class="athlete-metric">
+              <span class="athlete-metric__num">5<small>回</small></span>
+              <span class="athlete-metric__label">世界大会出場</span>
+            </div>
+            <div class="athlete-metric">
+              <span class="athlete-metric__num">3<small>年</small></span>
+              <span class="athlete-metric__label">チームキャプテン</span>
+            </div>
           </div>
+
         </div>
 
       </div><!-- /.athlete-bg-hero -->
@@ -406,143 +426,73 @@
           </div>
         </div>
 
-        <!-- 横スクロール行 -->
-        <div class="projects-row-wrap">
-          <button class="projects-scroll-btn projects-scroll-btn--prev is-hidden" id="projPrev" aria-label="前へ">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="projects-scroll-btn projects-scroll-btn--next" id="projNext" aria-label="次へ">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        <div class="projects-scroll-row" id="projectsScrollRow">
+        <!-- プロジェクト縦リスト -->
+        <div class="proj-v-list">
 
-          <!-- Beach Flags Series -->
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/17.jpg" alt="Beach Flags Series" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">ビーチフラッグス専門のシリーズ戦。国内トップアスリートが競い合う独自の競技コミュニティ。</p></div>
+          <a class="proj-v-item reveal-up" href="https://www.instagram.com/the_beach_flags_series/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">SERIES · BEACH FLAGS</span>
+              <h3 class="proj-v-item__title">Beach Flags Series</h3>
+              <p class="proj-v-item__desc">ビーチフラッグス専門のシリーズ戦。国内トップアスリートが競い合う独自の競技コミュニティ。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">SERIES · BEACH FLAGS</span>
-                <h3 class="project-card__title">Beach Flags Series</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://www.instagram.com/the_beach_flags_series/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <!-- 全日本選手権・競技活動 -->
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/mv_lifesavingsports.jpg" alt="全日本選手権・競技活動" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">ビーチフラッグス・サーフレースなど国内外の競技会に出場。日本代表として2024年世界選手権SERC種目で初優勝。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.05s" href="https://ls.jla-lifesaving.or.jp/lifesaving-sports/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">COMPETITION · JLA</span>
+              <h3 class="proj-v-item__title">全日本選手権・競技活動</h3>
+              <p class="proj-v-item__desc">ビーチフラッグス・サーフレースなど国内外の競技会に出場。日本代表として2024年世界選手権SERC種目で初優勝。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">COMPETITION · JLA</span>
-                <h3 class="project-card__title">全日本選手権・競技活動</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://ls.jla-lifesaving.or.jp/lifesaving-sports/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/watersafety/15/mv.jpg" alt="溺水防止シンポジウム" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">世界で年間約236,000人が溺水で命を失う現状に対し、JLA主催の啓発シンポジウムに登壇。水辺の安全普及に貢献。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.1s" href="https://jla-lifesaving.or.jp/watersafety/world-drowning-prevention-day/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">WATER SAFETY · JLA</span>
+              <h3 class="proj-v-item__title">溺水防止シンポジウム</h3>
+              <p class="proj-v-item__desc">世界で年間約236,000人が溺水で命を失う現状に対し、JLA主催の啓発シンポジウムに登壇。水辺の安全普及に貢献。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">WATER SAFETY · JLA</span>
-                <h3 class="project-card__title">溺水防止シンポジウム</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://jla-lifesaving.or.jp/watersafety/world-drowning-prevention-day/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/17.jpg" alt="企業向け海体験プログラム" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">鵠沼・西浜を拠点に、企業の研修・チームビルディング向けの海体験プログラムを企画・運営。各団体の希望に合わせてカスタマイズ。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.15s" href="https://www.nishihama.org/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">CORPORATE · 西浜</span>
+              <h3 class="proj-v-item__title">企業向け海体験プログラム</h3>
+              <p class="proj-v-item__desc">鵠沼・西浜を拠点に、企業の研修・チームビルディング向けの海体験プログラムを企画・運営。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">CORPORATE · 西浜</span>
-                <h3 class="project-card__title">企業向け海体験プログラム</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://www.nishihama.org/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://www.nishihama.org/jr_youth/img/photo01_b.jpg" alt="ジュニアユース育成" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">2000年開始、現在約100名が活動するジュニアユースプログラム。海洋環境への親しみと自他の命を大切にする心を育む。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.2s" href="https://www.nishihama.org/jr_youth/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">YOUTH · 西浜</span>
+              <h3 class="proj-v-item__title">ジュニアユース育成</h3>
+              <p class="proj-v-item__desc">2000年開始、現在約100名が活動するジュニアユースプログラム。海洋環境への親しみと自他の命を大切にする心を育む。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">YOUTH · 西浜</span>
-                <h3 class="project-card__title">ジュニアユース育成</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://www.nishihama.org/jr_youth/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/18.jpg" alt="水難事故防止啓発" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">地域・行政と連携した水難事故防止の啓発活動を展開。実践的な水辺の安全知識と救助技術の普及に取り組む。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.25s" href="https://jla-lifesaving.or.jp/watersafety/waterfront/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">LECTURE · JLA</span>
+              <h3 class="proj-v-item__title">水難事故防止啓発</h3>
+              <p class="proj-v-item__desc">地域・行政と連携した水難事故防止の啓発活動を展開。実践的な水辺の安全知識と救助技術の普及に取り組む。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">LECTURE · JLA</span>
-                <h3 class="project-card__title">水難事故防止啓発</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://jla-lifesaving.or.jp/watersafety/waterfront/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
-          <div class="project-card project-card--img">
-            <div class="project-card__thumb">
-              <img src="https://jla-lifesaving.or.jp/wp/images/lifesavingsports/15.jpg" alt="学校出張授業・講演" loading="lazy" class="project-card__img">
-              <div class="project-card__overlay"><p class="project-card__desc">小中高校への出張授業・講演を実施。「命を救う」ライフセーバーの視点から海洋安全教育とアスリートの生き方を届ける。</p></div>
+          <a class="proj-v-item reveal-up" style="--delay:0.3s" href="https://jla-lifesaving.or.jp/news/3645/" target="_blank" rel="noopener noreferrer">
+            <div class="proj-v-item__body">
+              <span class="proj-v-item__cat">SCHOOL · LECTURE</span>
+              <h3 class="proj-v-item__title">学校出張授業・講演</h3>
+              <p class="proj-v-item__desc">小中高校への出張授業・講演を実施。「命を救う」ライフセーバーの視点から海洋安全教育とアスリートの生き方を届ける。</p>
             </div>
-            <div class="project-card__meta">
-              <div class="project-card__meta-text">
-                <span class="project-card__cat">SCHOOL · LECTURE</span>
-                <h3 class="project-card__title">学校出張授業・講演</h3>
-              </div>
-              <div class="project-card__actions">
-                <button class="project-card__info-btn" aria-label="詳細を見る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="17"/><circle cx="12" cy="7.5" r="0.8" fill="currentColor" stroke="none"/></svg></button>
-                <a href="https://jla-lifesaving.or.jp/news/3645/" target="_blank" rel="noopener noreferrer" class="project-card__link-btn" aria-label="外部ページへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>
-              </div>
-            </div>
-          </div>
+            <svg class="proj-v-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>
+          </a>
 
         </div>
-          <!-- スクロールプログレスバー -->
-          <div class="projects-scroll-track" id="projScrollTrack">
-            <div class="projects-scroll-thumb" id="projScrollThumb"></div>
-          </div>
-        </div><!-- /.projects-row-wrap -->
       </div>
     </section><!-- /#projects -->
 
@@ -744,14 +694,11 @@
         <div class="contact__header reveal-up">
           <p class="section-eyebrow on-dark">CONTACT</p>
           <h2 class="section-title on-dark">お問い合わせ</h2>
-          <p class="contact__subtitle">講演・スポンサー・取材のご依頼はお気軽にどうぞ</p>
         </div>
 
-        <!-- お問い合わせリスト -->
         <div class="contact-list reveal-up" style="--delay:0.1s">
 
           <a href="mailto:contact@ryoueno.com?subject=講演依頼" class="contact-list-item">
-            <span class="contact-list-item__num">01</span>
             <span class="contact-list-item__type">講演依頼</span>
             <span class="contact-list-item__desc">学校・企業・地域への講演 / 出張授業・登壇</span>
             <span class="contact-list-item__arrow">
@@ -760,7 +707,6 @@
           </a>
 
           <a href="mailto:contact@ryoueno.com?subject=スポンサー相談" class="contact-list-item">
-            <span class="contact-list-item__num">02</span>
             <span class="contact-list-item__type">スポンサー相談</span>
             <span class="contact-list-item__desc">アスリートスポンサーシップ / パートナーシップ</span>
             <span class="contact-list-item__arrow">
@@ -769,7 +715,6 @@
           </a>
 
           <a href="mailto:contact@ryoueno.com?subject=取材依頼" class="contact-list-item">
-            <span class="contact-list-item__num">03</span>
             <span class="contact-list-item__type">取材依頼</span>
             <span class="contact-list-item__desc">TV・雑誌・ラジオ・Web / メディア取材</span>
             <span class="contact-list-item__arrow">
@@ -778,7 +723,6 @@
           </a>
 
         </div>
-
         <!-- SNS -->
         <div class="contact__sns reveal-up">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact__sns-item" aria-label="Instagram">
