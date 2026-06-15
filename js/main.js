@@ -160,7 +160,8 @@ updateSoundIcon();
 
 
 /* ----------------------------------------------------------------
-   4-B. Hero動画 ①→⑤→①... ループ切り替え（0.5s フェード）
+   4-B. Hero動画 ①③④⑤ ループ切り替え
+        終了1秒前からフェードアウト開始 → 黒くなったら次の動画にフェードイン
 ---------------------------------------------------------------- */
 (function () {
   const video = document.getElementById('heroVideo');
@@ -169,18 +170,30 @@ updateSoundIcon();
 
   const srcs = [
     'assets/video/素材提供①.mp4',
+    'assets/video/素材提供③.mp4',
+    'assets/video/素材提供④.mp4',
     'assets/video/素材提供⑤.mp4',
   ];
   let current = 0;
+  let switching = false;
 
-  video.addEventListener('ended', () => {
-    fade.style.opacity = '1';
-    setTimeout(() => {
-      current = (current + 1) % srcs.length;
-      video.src = srcs[current];
-      video.play();
-      setTimeout(() => { fade.style.opacity = '0'; }, 50);
-    }, 500);
+  // 終了1秒前からフェードアウト開始
+  video.addEventListener('timeupdate', () => {
+    if (!isFinite(video.duration) || switching) return;
+    const remaining = video.duration - video.currentTime;
+    if (remaining <= 1.0) {
+      switching = true;
+      fade.style.opacity = '1';           // 1秒かけて黒へ（CSS transition: 1s）
+      setTimeout(() => {
+        current = (current + 1) % srcs.length;
+        video.src = srcs[current];
+        video.play();
+        setTimeout(() => {
+          fade.style.opacity = '0';       // 次の動画にフェードイン
+          switching = false;
+        }, 50);
+      }, 1000);                           // CSS transitionと合わせて1秒後に切り替え
+    }
   });
 })();
 
